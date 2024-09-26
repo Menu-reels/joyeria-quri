@@ -89,9 +89,15 @@
                 flex-direction: column;
             }
 
-            header p, .cart-icon {
-                text-align: center;
-                flex: none;
+            header p {
+                display: none; /* Oculta el texto del teléfono */
+            }
+
+            .phone-icon {
+                font-size: 1.5rem;
+                display: block;
+                text-align: left;
+                margin-left: 15px;
             }
 
             header img {
@@ -99,7 +105,7 @@
             }
 
             h1 {
-                font-size: 2.5rem;
+                font-size: 25px; /* Ajuste del tamaño del h1 en móviles */
             }
         }
     </style>
@@ -107,6 +113,7 @@
 <body>
     <header>
         <p>+593 99 706 2776</p>
+        <i class="fas fa-phone-alt phone-icon" style="display: none;"></i> <!-- Icono de teléfono para móviles -->
         <img src="logo-ia.png" alt="Logo Joyería Quri">
         <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
@@ -125,6 +132,13 @@
             setTimeout(function() {
                 h1.textContent = newText;
             }, 4000);
+
+            // Mostrar el icono de teléfono en pantallas móviles
+            var phoneIcon = document.querySelector('.phone-icon');
+            var mediaQuery = window.matchMedia('(max-width: 768px)');
+            if (mediaQuery.matches) {
+                phoneIcon.style.display = 'block';
+            }
         });
     </script>
 </body>
