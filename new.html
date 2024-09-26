@@ -373,6 +373,19 @@
         <div class="capa">
             <img src="logo-ia.png" alt="Logo Joyería Quri">
             <h1>Tu Anillo Perfecto</h1>
+            <form id="contactForm" style="margin-top: 20px;">
+    <div>
+        <label for="name">Nombre:</label>
+        <input type="text" name="name" required>
+    </div>
+    <div>
+        <label for="phone">Teléfono:</label>
+        <input type="tel" name="phone" required>
+    </div>
+    <button type="submit">Enviarme</button>
+    <div id="phoneError" style="display: none; color: red;">El número de teléfono es inválido.</div>
+</form>
+
         </div>
     </section>
 
@@ -549,6 +562,7 @@
 
   // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
     document.addEventListener('DOMContentLoaded', function() {
+        
         const reviewContainer = document.querySelector('.reviews-items');
         let clone = reviewContainer.innerHTML; // Clonar las reseñas
 
@@ -556,6 +570,65 @@
             reviewContainer.innerHTML += clone; // Añadir el clon de las reseñas
         }, 15000); // Cada 15 segundos se duplicarán las reseñas para dar la sensación de carrusel continuo
     });
+
+
+ // Cambiar ejemplo.jpg a ejemplo2.jpg cada 5 segundos
+    const ejemploImage = document.querySelector('.ejemplo-image img');
+    const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
+    let currentImageIndex = 0;
+
+    setInterval(() => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        ejemploImage.src = images[currentImageIndex];
+    }, 5000);
+
+    // Lógica del formulario
+    const form = document.getElementById('contactForm');
+    const phoneError = document.getElementById('phoneError');
+    const telefonoInput = form.querySelector('input[name="phone"]');
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const inputName = encodeURIComponent(form.querySelector('input[name="name"]').value);
+        const inputPhone = encodeURIComponent(telefonoInput.value.replace(/\s+/g, ''));
+        const clientEmail = encodeURIComponent("rickymaldonado@gmail.com"); // Reemplaza con el email del usuario
+
+        // Validación teléfono para que entre con el +34 y sin espacios
+        if (inputPhone.replace(/\D/g, '').length < 15) {
+            phoneError.style.display = 'block';
+            return;
+        } else {
+            phoneError.style.display = 'none';
+        }
+
+        const url = `https://hooks.zapier.com/hooks/catch/19308114/2dgvzu2?clientEmail=${clientEmail}&leadName=${inputName}&leadPhone=${inputPhone}`;
+        
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(result => {
+            console.log(result);
+            // Mensaje de confirmación aquí
+            alert("¡Gracias por tu interés! Te contactaremos pronto.");
+            form.reset(); // Limpia el formulario después de enviar
+        })
+        .catch(error => {
+            console.error(error);
+            document.getElementById('popup').style.display = 'none'; // Si hay un popup, ocúltalo
+        });
+    });
+});
     </script>
 </body>
 </html>
