@@ -57,8 +57,6 @@
             justify-content: center;
         }
 
-        
-
         h1 {
             font-size: 3rem;
             margin: 0;
@@ -87,7 +85,7 @@
             }
 
             header p {
-                display: none; /* Oculta el texto del teléfono */
+                display: none; /* Oculta el texto del teléfono en móviles */
             }
 
             .phone-icon {
@@ -105,12 +103,18 @@
                 font-size: 25px; /* Ajuste del tamaño del h1 en móviles */
             }
         }
+
+        @media (min-width: 769px) {
+            .phone-icon {
+                display: none; /* Oculta el icono del teléfono en pantallas grandes */
+            }
+        }
     </style>
 </head>
 <body>
     <header>
         <p>+593 99 706 2776</p>
-        <i class="fas fa-phone-alt phone-icon" style="display: none;"></i> <!-- Icono de teléfono para móviles -->
+        <i class="fas fa-phone-alt phone-icon"></i> <!-- Icono de teléfono para móviles -->
        
         <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
@@ -118,7 +122,7 @@
     </header>
     <section class="slider">
         <div class="capa">
-             <img src="logo-ia.png" alt="Logo Joyería Quri">
+            <img src="logo-ia.png" alt="Logo Joyería Quri">
             <h1>Tu Anillo Perfecto</h1>
         </div>
     </section>
@@ -130,13 +134,6 @@
             setTimeout(function() {
                 h1.textContent = newText;
             }, 4000);
-
-            // Mostrar el icono de teléfono en pantallas móviles
-            var phoneIcon = document.querySelector('.phone-icon');
-            var mediaQuery = window.matchMedia('(max-width: 768px)');
-            if (mediaQuery.matches) {
-                phoneIcon.style.display = 'block';
-            }
         });
     </script>
 </body>
