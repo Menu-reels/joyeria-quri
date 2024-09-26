@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyería Quri</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Dancing Script', cursive;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        header {
+            background-color: #f8f9fa;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header p {
+            margin: 0;
+        }
+        .slider {
+            height: 100vh;
+            background: url('anillo.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .capa {
+            background: rgba(0, 0, 0, 0.5); /* Capa oscura */
+            padding: 20px;
+            border-radius: 10px;
+            color: white; /* Texto blanco */
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap; /* Evita el salto de línea */
+            overflow: hidden; /* Oculta el texto que no cabe */
+            border-right: 2px solid white; /* Efecto cursor */
+            animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: white }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p>+593 99 706 2776</p>
+        <img src="logo-ia.png" alt="">
+        <i>Icono Carrito</i>
+    </header>
+    <section class="slider">
+        <div class="capa">
+            <h1>Tu Anillo Perfecto</h1>
+        </div>
+    </section>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var h1 = document.querySelector('h1');
+            var newText = 'Recibe el Catálogo por Whatsapp';
+
+            setTimeout(function() {
+                h1.textContent = newText;
+            }, 4000); // 4000 milisegundos = 4 segundos (igual a la duración de la animación)
+        });
+    </script>
+</body>
+</html>
