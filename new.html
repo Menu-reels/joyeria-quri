@@ -299,6 +299,59 @@
             font-size: 2rem;
         }
     }
+
+ .ejemplo {
+        padding: 50px 0;
+        background-color: #f1f1f1;
+        text-align: center;
+    }
+
+    .ejemplo h1 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    .ejemplo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .ejemplo-image img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .ejemplo-text {
+        max-width: 600px;
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.6;
+        text-align: left;
+        padding: 0 20px;
+    }
+
+    /* Media query para pantallas pequeñas */
+    @media (max-width: 768px) {
+        .ejemplo-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ejemplo-text {
+            text-align: center;
+            padding: 0;
+        }
+
+        .ejemplo h1 {
+            font-size: 2rem;
+        }
+    }
     </style>
 </head>
 <body>
@@ -332,6 +385,28 @@
             <button class="next">&#10095;</button>
         </div>
     </section>
+
+<!-- Nueva sección Ejemplo -->
+<section class="ejemplo">
+    <h1>Historias de Amor</h1>
+    <div class="ejemplo-container">
+        <div class="ejemplo-image">
+            <img src="ejemplo1.png" alt="Boda feliz con anillo perfecto">
+        </div>
+        <div class="ejemplo-text">
+            <p>
+                María y Juan encontraron en Joyería Quri el anillo perfecto para sellar su amor en una ceremonia inolvidable. 
+                Tras meses de preparación, el anillo de oro blanco que eligieron brilló tanto como su felicidad el día de la boda. 
+                Cada detalle del anillo reflejaba la dedicación y el amor que ambos compartían. Hoy, siguen celebrando su unión, 
+                agradecidos por haber encontrado el símbolo ideal para este gran día.
+            </p>
+        </div>
+    </div>
+</section>
+
+
+
+
     <section class="reviews">
     <h1>Lo que dicen nuestros clientes</h1>
     <div class="reviews-carousel">
