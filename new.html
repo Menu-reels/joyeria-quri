@@ -166,6 +166,100 @@
                 display: none; /* Oculta el icono del teléfono en pantallas grandes */
             }
         }
+
+
+  /* Estilos para la sección de reseñas */
+    .reviews {
+        padding: 50px 0;
+        background-color: #f8f9fa;
+        text-align: center;
+    }
+
+    .reviews h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .reviews-carousel {
+        overflow: hidden;
+        max-width: 80%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .reviews-items {
+        display: flex;
+        animation: slide 15s infinite linear;
+    }
+
+    .review {
+        flex: 0 0 300px;
+        margin: 0 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .review img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    .review-info {
+        text-align: center;
+    }
+
+    .review h3 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .review-date {
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 10px;
+    }
+
+    .stars {
+        color: #f1c40f;
+        margin-bottom: 10px;
+    }
+
+    .review-text {
+        font-size: 1rem;
+        color: #333;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-300px * 3)); /* Ajusta el número según la cantidad de reseñas */
+        }
+    }
+
+    /* Media queries para reseñas */
+    @media (max-width: 768px) {
+        .review {
+            flex: 0 0 250px;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 3)); /* Ajusta según el tamaño de reseñas en móviles */
+            }
+        }
+    }
     </style>
 </head>
 <body>
@@ -199,7 +293,46 @@
             <button class="next">&#10095;</button>
         </div>
     </section>
-
+    <section class="reviews">
+    <h1>Lo que dicen nuestros clientes</h1>
+    <div class="reviews-carousel">
+        <div class="reviews-items">
+            <div class="review">
+                <img src="cliente1.jpg" alt="Cliente 1">
+                <div class="review-info">
+                    <h3>Juan Pérez</h3>
+                    <p class="review-date">12 de septiembre de 2024</p>
+                    <div class="stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9733;
+                    </div>
+                    <p class="review-text">¡Increíble atención y productos de gran calidad! Estoy muy contento con mi compra.</p>
+                </div>
+            </div>
+            <div class="review">
+                <img src="cliente2.jpg" alt="Cliente 2">
+                <div class="review-info">
+                    <h3>María García</h3>
+                    <p class="review-date">5 de agosto de 2024</p>
+                    <div class="stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9733;
+                    </div>
+                    <p class="review-text">La joyería es preciosa y llegó justo a tiempo. Muy recomendados.</p>
+                </div>
+            </div>
+            <div class="review">
+                <img src="cliente3.jpg" alt="Cliente 3">
+                <div class="review-info">
+                    <h3>Carlos Fernández</h3>
+                    <p class="review-date">25 de julio de 2024</p>
+                    <div class="stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9734;
+                    </div>
+                    <p class="review-text">El anillo que compré es perfecto. ¡Gracias por el excelente servicio!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var h1 = document.querySelector('h1');
@@ -232,6 +365,17 @@
                 updateCarousel();
             });
         });
+
+
+  // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
+    document.addEventListener('DOMContentLoaded', function() {
+        const reviewContainer = document.querySelector('.reviews-items');
+        let clone = reviewContainer.innerHTML; // Clonar las reseñas
+
+        setInterval(() => {
+            reviewContainer.innerHTML += clone; // Añadir el clon de las reseñas
+        }, 15000); // Cada 15 segundos se duplicarán las reseñas para dar la sensación de carrusel continuo
+    });
     </script>
 </body>
 </html>
