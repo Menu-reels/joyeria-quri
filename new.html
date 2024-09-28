@@ -642,43 +642,59 @@
     form.addEventListener('submit', function(event) {
         event.preventDefault();
 
-        const inputName = encodeURIComponent(form.querySelector('input[name="name"]').value);
-        const inputPhone = encodeURIComponent(telefonoInput.value.replace(/\s+/g, ''));
-        const clientEmail = encodeURIComponent("rickymaldonado@gmail.com"); // Reemplaza con el email del usuario
+        // Lógica del formulario
+const form = document.getElementById('contactForm');
+const phoneError = document.getElementById('phoneError');
+const telefonoInput = form.querySelector('input[name="phone"]');
 
-        // Validación teléfono para que entre con el +34 y sin espacios
-        if (inputPhone.replace(/\D/g, '').length < 15) {
-            phoneError.style.display = 'block';
-            return;
-        } else {
-            phoneError.style.display = 'none';
+form.addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const inputName = encodeURIComponent(form.querySelector('input[name="name"]').value);
+    let inputPhone = encodeURIComponent(telefonoInput.value.replace(/\s+/g, ''));
+
+    // Asegurar que el teléfono empiece con +593 y tenga al menos 10 dígitos
+    if (!inputPhone.startsWith('+593')) {
+        inputPhone = '+593' + inputPhone;
+    }
+
+    // Validar que tenga al menos 10 dígitos después de sanearlo
+    if (inputPhone.replace(/\D/g, '').length < 10) {
+        phoneError.style.display = 'block';
+        return;
+    } else {
+        phoneError.style.display = 'none';
+    }
+
+    const clientEmail = encodeURIComponent("rickymaldonado@gmail.com"); // Reemplaza con el email del usuario
+
+    const url = `https://hooks.zapier.com/hooks/catch/19308114/2dgvzu2?clientEmail=${clientEmail}&leadName=${inputName}&leadPhone=${inputPhone}`;
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({})
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
         }
+        return response.json();
+    })
+    .then(result => {
+        console.log(result);
+        // Mensaje de confirmación aquí
+        alert("¡Gracias por tu interés! Te contactaremos pronto.");
+        form.reset(); // Limpia el formulario después de enviar
+    })
+    .catch(error => {
+        console.error(error);
+        document.getElementById('popup').style.display = 'none'; // Si hay un popup, ocúltalo
+    });
+});
 
-        const url = `https://hooks.zapier.com/hooks/catch/19308114/2dgvzu2?clientEmail=${clientEmail}&leadName=${inputName}&leadPhone=${inputPhone}`;
-        
-        fetch(url, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({})
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(result => {
-            console.log(result);
-            // Mensaje de confirmación aquí
-            alert("¡Gracias por tu interés! Te contactaremos pronto.");
-            form.reset(); // Limpia el formulario después de enviar
-        })
-        .catch(error => {
-            console.error(error);
-            document.getElementById('popup').style.display = 'none'; // Si hay un popup, ocúltalo
-        });
     });
 
     </script>
