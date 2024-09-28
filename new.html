@@ -653,14 +653,14 @@
             }
 
             // Limitar la longitud máxima a 12 caracteres (incluyendo el +593)
-            if (telefono.length > 12) {
-                telefono = telefono.slice(0, 12);
+            if (telefono.length > 14) {
+                telefono = telefono.slice(0, 14);
             }
 
             telefonoInput.value = telefono;
 
             // Validar longitud del teléfono en tiempo real
-            if (telefono.replace(/\D/g, '').length >= 12) {
+            if (telefono.replace(/\D/g, '').length >= 14) {
                 phoneError.style.display = 'none';
                 form.querySelector('button[type="submit"]').disabled = false;
             } else {
@@ -678,7 +678,7 @@
             const clientEmail = encodeURIComponent("rickymaldonado@gmail.com");
 
             // Validar que el teléfono tenga al menos 10 dígitos después de +593
-            if (inputPhone.replace(/\D/g, '').length < 10) {
+            if (inputPhone.replace(/\D/g, '').length < 14) {
                 phoneError.style.display = 'block';
                 return;
             } else {
