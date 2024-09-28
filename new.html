@@ -660,7 +660,7 @@
             telefonoInput.value = telefono;
 
             // Validar longitud del teléfono en tiempo real
-            if (telefono.replace(/\D/g, '').length >= 10) {
+            if (telefono.replace(/\D/g, '').length >= 12) {
                 phoneError.style.display = 'none';
                 form.querySelector('button[type="submit"]').disabled = false;
             } else {
