@@ -410,6 +410,27 @@
             color: red;
             margin-top: 10px;
         }
+
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-button img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-button img:hover {
+    transform: scale(1.1);
+}
+
     </style>
 </head>
 <body>
@@ -555,6 +576,11 @@
         </div>
     </div>
 </section>
+
+<a href="https://api.whatsapp.com/send?phone=+593997062776&text=Quiero%20hacer%20un%20medido" target="_blank" class="whatsapp-button">
+    <img src="logowt.png" alt="WhatsApp" />
+</a>
+
 <!-- Nueva sección Ubicación -->
 <section class="location">
     <h1>Encuéntranos en el Centro Comercial Iñaquito</h1>
