@@ -625,10 +625,7 @@
             const totalImages = document.querySelectorAll('.carousel-images img').length;
             const imageWidth = document.querySelector('.carousel-images img').clientWidth;
 
-            function updateCarousel() {
-                carousel.style.transform = translateX(${-currentIndex * (imageWidth + 20)}px);
-            }
-
+              // Continuación de la función del carrusel
             nextBtn.addEventListener('click', () => {
                 currentIndex = (currentIndex + 1) % totalImages;
                 updateCarousel();
@@ -638,6 +635,16 @@
                 currentIndex = (currentIndex - 1 + totalImages) % totalImages;
                 updateCarousel();
             });
+
+            window.addEventListener('resize', () => {
+                // Actualizar el ancho de la imagen cuando la ventana cambia de tamaño
+                const imageWidth = document.querySelector('.carousel-images img').clientWidth;
+                updateCarousel();
+            });
+
+            function updateCarousel() {
+                carousel.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`;
+            }
         });
 
 
