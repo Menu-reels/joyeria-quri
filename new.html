@@ -599,53 +599,48 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var h1 = document.querySelector('h1');
-            var newText = 'Recibe el Catálogo por Whatsapp';
+    // Cambiar el texto del h1 después de 4 segundos
+    var h1 = document.querySelector('h1');
+    var newText = 'Recibe el Catálogo por Whatsapp';
 
-            setTimeout(function() {
-                h1.textContent = newText;
-            }, 4000);
+    setTimeout(function() {
+        h1.textContent = newText;
+    }, 4000);
 
-              // Cambiar imagen en la sección Ejemplo cada 5 segundos
-        const ejemploImage = document.querySelector('.ejemplo-image img');
-        const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
-        let currentImageIndex = 0;
+    // Cambiar imagen en la sección Ejemplo cada 5 segundos
+    const ejemploImage = document.querySelector('.ejemplo-image img');
+    const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
+    let currentImageIndex = 0;
 
-        setInterval(() => {
-            currentImageIndex = (currentImageIndex + 1) % images.length; // Cambiar el índice
-            ejemploImage.src = images[currentImageIndex]; // Actualizar la imagen
-        }, 5000); // Cambiar cada 5 segundos
+    setInterval(() => {
+        currentImageIndex = (currentImageIndex + 1) % images.length; // Cambiar el índice
+        ejemploImage.src = images[currentImageIndex]; // Actualizar la imagen
+    }, 5000); // Cambiar cada 5 segundos
 
-            // Carousel functionality
-            const carousel = document.querySelector('.carousel-images');
-            const prevBtn = document.querySelector('.prev');
-            const nextBtn = document.querySelector('.next');
-            let currentIndex = 0;
+    // Funcionalidad del carrusel
+    const carousel = document.querySelector('.carousel-images');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentIndex = 0;
 
-            const totalImages = document.querySelectorAll('.carousel-images img').length;
-            const imageWidth = document.querySelector('.carousel-images img').clientWidth;
+    const totalImages = document.querySelectorAll('.carousel-images img').length;
+    const imageWidth = document.querySelector('.carousel-images img').clientWidth;
 
-              // Continuación de la función del carrusel
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalImages;
-                updateCarousel();
-            });
+    function updateCarousel() {
+        carousel.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`; // Corregir comillas invertidas
+    }
 
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-                updateCarousel();
-            });
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalImages; // Aumentar el índice
+        updateCarousel();
+    });
 
-            window.addEventListener('resize', () => {
-                // Actualizar el ancho de la imagen cuando la ventana cambia de tamaño
-                const imageWidth = document.querySelector('.carousel-images img').clientWidth;
-                updateCarousel();
-            });
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Disminuir el índice
+        updateCarousel();
+    });
+});
 
-            function updateCarousel() {
-                carousel.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`;
-            }
-        });
 
 
   // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
@@ -728,10 +723,7 @@
                 body: JSON.stringify({})
             })
             .then(response => {
-                if (!response.ok) {
-                    throw new Error(HTTP error! status: ${response.status});
-                }
-                return response.json();
+                
             })
             .then(result => {
                 console.log(result);
