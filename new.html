@@ -431,6 +431,35 @@
     transform: scale(1.1);
 }
 
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.popup img {
+    max-width: 100%;
+    height: auto;
+}
+
+.popup a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #25D366; /* Color de WhatsApp */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+
     </style>
 </head>
 <body>
@@ -468,17 +497,24 @@
     <!-- Nueva sección Colección -->
     <section class="coleccion">
         <h1>Colección Septiembre</h1>
-        <div class="carousel">
-            <button class="prev">&#10094;</button>
-            <div class="carousel-images">
-                <img src="joyanew1.png" alt="Joya 1">
-                <img src="joyanew2.png" alt="Joya 2">
-                <img src="joyanew4.png" alt="Joya 3">
-                <img src="joyanew1.png" alt="Joya 5">
-                <img src="quri1.png" alt="Joya 6">
-            </div>
-            <button class="next">&#10095;</button>
+      <div class="carousel-images" style="transform: translateX(0px);">
+        <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 1">
+            <img src="joyanew1.png" alt="Joya 1" class="product-image">
         </div>
+        <div class="product" data-img="joyanew2.png" data-descripcion="Descripción del Producto 2">
+            <img src="joyanew2.png" alt="Joya 2" class="product-image">
+        </div>
+        <div class="product" data-img="joyanew4.png" data-descripcion="Descripción del Producto 3">
+            <img src="joyanew4.png" alt="Joya 3" class="product-image">
+        </div>
+        <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 4">
+            <img src="joyanew1.png" alt="Joya 4" class="product-image">
+        </div>
+        <div class="product" data-img="joyanew6.png" data-descripcion="Descripción del Producto 5">
+            <img src="joyanew6.png" alt="Joya 5" class="product-image">
+        </div>
+    </div>
+
     </section>
 
 <!-- Nueva sección Ejemplo -->
@@ -737,6 +773,36 @@
                 alert("Te acabamos de enviar el catálogo por Whatsapp.");
             });
         });
+
+
+document.querySelectorAll('.product').forEach(product => {
+    product.addEventListener('click', () => {
+        const imgSrc = product.getAttribute('data-img');
+        const descripcion = product.getAttribute('data-descripcion');
+
+        // Crear el contenido del pop-up
+        const popupContent = `
+            <img src="${imgSrc}" alt="Imagen del producto">
+            <a href="https://wa.me/593XXXXXXXXX?text=${encodeURIComponent(descripcion)}" target="_blank">Enviar a WhatsApp</a>
+        `;
+
+        // Mostrar el pop-up
+        const popup = document.createElement('div');
+        popup.classList.add('popup');
+        popup.innerHTML = popupContent;
+        document.body.appendChild(popup);
+
+        // Mostrar el pop-up
+        popup.style.display = 'block';
+
+        // Cerrar el pop-up al hacer clic
+        popup.addEventListener('click', () => {
+            popup.style.display = 'none';
+            document.body.removeChild(popup);
+        });
+    });
+});
+
     </script>
 </body>
 </html>
