@@ -94,46 +94,46 @@
             margin-bottom: 20px;
         }
 
-      .carousel {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    max-width: 80%;
-    margin: 0 auto;
-    overflow: hidden;
-}
+        .carousel {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            max-width: 80%;
+            margin: 0 auto;
+            overflow: hidden;
+        }
 
-.carousel-images {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
 
-.carousel-images img {
-    width: 300px;
-    height: auto;
-    margin: 0 10px;
-    border-radius: 10px;
-}
+        .carousel-images img {
+            width: 300px;
+            height: auto;
+            margin: 0 10px;
+            border-radius: 10px;
+        }
 
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
 
-.prev {
-    left: 0;
-}
+        .prev {
+            left: 0;
+        }
 
-.next {
-    right: 0;
-}
+        .next {
+            right: 0;
+        }
 
         /* Media queries para pantallas pequeñas */
         @media (max-width: 768px) {
@@ -482,7 +482,6 @@
 }
 
 
-
     </style>
 </head>
 <body>
@@ -517,12 +516,10 @@
         </div>
     </section>
 
-   <!-- Nueva sección Colección -->
-<section class="coleccion">
-    <h1>Colección Septiembre</h1>
-    <div class="carousel">
-        <button class="prev">&lt;</button> <!-- Botón de navegación izquierda -->
-       <div class="carousel-images" style="transform: translateX(0px);">
+    <!-- Nueva sección Colección -->
+    <section class="coleccion">
+        <h1>Colección Septiembre</h1>
+        <div class="carousel-images" style="transform: translateX(0px);">
             <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 1">
                 <img src="joyanew1.png" alt="Joya 1" class="product-image">
             </div>
@@ -540,19 +537,7 @@
             </div>
         </div>
 
-        <button class="next">&gt;</button> <!-- Botón de navegación derecha -->
-    </div>
-</section>
-
-
-<!-- Pop-up -->
-<div id="popup" class="popup" style="display:none;">
-    <div class="popup-content">
-        <span class="close" onclick="closePopup()">&times;</span>
-        <p id="popup-description"></p>
-        <a id="whatsapp-link" href="#" target="_blank">Contactar por WhatsApp</a>
-    </div>
-</div>
+    </section>
 
 <!-- Nueva sección Ejemplo -->
 <section class="ejemplo">
@@ -689,32 +674,29 @@
             ejemploImage.src = images[currentImageIndex]; // Actualizar la imagen
         }, 5000); // Cambiar cada 5 segundos
 
+            // Carousel functionality
+            const carousel = document.querySelector('.carousel-images');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentIndex = 0;
 
-// FUNCION CARROUSEL
-           window.addEventListener('load', () => {
-    const carousel = document.querySelector('.carousel-images');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentIndex = 0;
+            const totalImages = document.querySelectorAll('.carousel-images img').length;
+            const imageWidth = document.querySelector('.carousel-images img').clientWidth;
 
-    const totalImages = document.querySelectorAll('.carousel-images img').length;
-    const imageWidth = document.querySelector('.carousel-images img').clientWidth;
+            function updateCarousel() {
+                carousel.style.transform = translateX(${-currentIndex * (imageWidth + 20)}px);
+            }
 
-    function updateCarousel() {
-        carousel.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`;
-    }
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                updateCarousel();
+            });
 
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalImages;
-        updateCarousel();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-        updateCarousel();
-    });
-});
-
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                updateCarousel();
+            });
+        });
 
 
   // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
@@ -798,7 +780,7 @@
             })
             .then(response => {
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(HTTP error! status: ${response.status});
                 }
                 return response.json();
             })
@@ -829,7 +811,7 @@ document.querySelectorAll('.product').forEach(product => {
         const popupContent = `
             <span class="close-popup">&times;</span>
             <img src="${imgSrc}" alt="Imagen del producto">
-            <a href="https://wa.me/593997062776?text=${encodeURIComponent(descripcion)}" target="_blank">Enviar a WhatsApp</a>
+            <a href="https://wa.me/593XXXXXXXXX?text=${encodeURIComponent(descripcion)}" target="_blank">Enviar a WhatsApp</a>
         `;
 
         // Crear el pop-up
@@ -858,9 +840,6 @@ document.querySelectorAll('.product').forEach(product => {
         });
     });
 });
-
-
-        
 
     </script>
 </body>
