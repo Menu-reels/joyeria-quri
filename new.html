@@ -387,7 +387,23 @@
     <section class="slider">
         <div class="capa">
             <img src="logo-ia.png" alt="Logo Joyería Quri">
-            <h1>Tu joyería de confianza</h1>
+            <h1>Tu Anillo Perfecto</h1>
+
+
+                <form id="contactForm" style="margin-top: 20px;">
+                    <div>
+                        <label for="name">Nombre:</label>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div>
+                        <label for="phone">Teléfono:</label>
+                        <input type="tel" id="phone" name="phone" value="+593" required>
+                    </div>
+                    <button type="submit">Enviar</button>
+                    <div id="phoneError" style="display: none; color: red;">El número de teléfono tiene que tener al menos 9 dígitos.</div>
+                </form>
+
+
         </div>
     </section>
 
@@ -468,25 +484,7 @@
         </div>
     </div>
 
-    <div class="contact">
-        <h1>Contáctanos</h1>
-        <form id="contactForm" onsubmit="return validatePhoneNumber()">
-            <div>
-                <label for="name">Nombre:</label>
-                <input type="text" id="name" required>
-            </div>
-            <div>
-                <label for="email">Correo Electrónico:</label>
-                <input type="email" id="email" required>
-            </div>
-            <div>
-                <label for="phone">Teléfono:</label>
-                <input type="tel" id="phone" placeholder="+593XXXXXXXXX" required>
-                <div id="phoneError">El número de teléfono debe comenzar con +593 y no contener espacios.</div>
-            </div>
-            <button type="submit">Enviar</button>
-        </form>
-    </div>
+  
 
     <div class="whatsapp-button">
         <a href="https://api.whatsapp.com/send?phone=593997062776" target="_blank">
@@ -495,42 +493,145 @@
     </div>
 
     <script>
-        const prevButton = document.querySelector('.prev');
-        const nextButton = document.querySelector('.next');
-        const carouselImages = document.querySelector('.carousel-images');
+          document.addEventListener('DOMContentLoaded', function() {
+            var h1 = document.querySelector('h1');
+            var newText = 'Recibe el Catálogo por Whatsapp';
 
-        let index = 0;
-        const totalImages = carouselImages.children.length;
+            setTimeout(function() {
+                h1.textContent = newText;
+            }, 4000);
 
-        function updateCarousel() {
-            const offset = -index * 320; // Adjusted based on image width and margin
-            carouselImages.style.transform = `translateX(${offset}px)`;
-        }
+              // Cambiar imagen en la sección Ejemplo cada 5 segundos
+        const ejemploImage = document.querySelector('.ejemplo-image img');
+        const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
+        let currentImageIndex = 0;
 
-        prevButton.addEventListener('click', () => {
-            index = (index > 0) ? index - 1 : totalImages - 1;
-            updateCarousel();
-        });
+        setInterval(() => {
+            currentImageIndex = (currentImageIndex + 1) % images.length; // Cambiar el índice
+            ejemploImage.src = images[currentImageIndex]; // Actualizar la imagen
+        }, 5000); // Cambiar cada 5 segundos
 
-        nextButton.addEventListener('click', () => {
-            index = (index < totalImages - 1) ? index + 1 : 0;
-            updateCarousel();
-        });
+            // Carousel functionality
+            const carousel = document.querySelector('.carousel-images');
+            const prevBtn = document.querySelector('.prev');
+            const nextBtn = document.querySelector('.next');
+            let currentIndex = 0;
 
-        function validatePhoneNumber() {
-            const phoneInput = document.getElementById('phone');
-            const phoneError = document.getElementById('phoneError');
-            const regex = /^\+593[0-9]{9}$/; // Match +593 followed by 9 digits
+            const totalImages = document.querySelectorAll('.carousel-images img').length;
+            const imageWidth = document.querySelector('.carousel-images img').clientWidth;
 
-            if (!regex.test(phoneInput.value)) {
-                phoneError.style.display = 'block';
-                return false; // Prevent form submission
+            function updateCarousel() {
+                carousel.style.transform = translateX(${-currentIndex * (imageWidth + 20)}px);
             }
 
-            phoneError.style.display = 'none'; // Hide error message if valid
-            return true; // Allow form submission
-        }
+            nextBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                updateCarousel();
+            });
 
+            prevBtn.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+                updateCarousel();
+            });
+        });
+
+
+  // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        const reviewContainer = document.querySelector('.reviews-items');
+        let clone = reviewContainer.innerHTML; // Clonar las reseñas
+
+        setInterval(() => {
+            reviewContainer.innerHTML += clone; // Añadir el clon de las reseñas
+        }, 15000); // Cada 15 segundos se duplicarán las reseñas para dar la sensación de carrusel continuo
+    });
+
+
+ // Cambiar ejemplo.jpg a ejemplo2.jpg cada 5 segundos
+    const ejemploImage = document.querySelector('.ejemplo-image img');
+    const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
+    let currentImageIndex = 0;
+
+    setInterval(() => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        ejemploImage.src = images[currentImageIndex];
+    }, 5000);
+
+
+    const form = document.getElementById('contactForm');
+        const telefonoInput = document.getElementById('phone');
+        const phoneError = document.getElementById('phoneError');
+
+        // Función para sanear y formatear el teléfono en tiempo real
+        telefonoInput.addEventListener("input", function () {
+            let telefono = telefonoInput.value.replace(/\s+/g, ''); // Eliminar espacios
+            telefono = telefono.replace(/[^0-9+]/g, ''); // Eliminar caracteres no permitidos
+
+            // Asegurarse de que siempre empiece con +593
+            if (!telefono.startsWith("+593")) {
+                telefono = "+593" + telefono.replace(/^(\+593)/, ''); // Reemplazar cualquier otro código inicial
+            }
+
+            // Limitar la longitud máxima a 15 caracteres (incluyendo el +593)
+            if (telefono.length > 15) {
+                telefono = telefono.slice(0, 15);
+            }
+
+            telefonoInput.value = telefono;
+
+            // Validar longitud del teléfono en tiempo real (al menos 9 dígitos después de +593)
+            if (telefono.length >= 13) {
+                phoneError.style.display = 'none';
+                form.querySelector('button[type="submit"]').disabled = false;
+            } else {
+                phoneError.style.display = 'block';
+                form.querySelector('button[type="submit"]').disabled = true;
+            }
+        });
+
+        // Evento de envío del formulario
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const inputName = encodeURIComponent(form.querySelector('input[name="name"]').value);
+            const inputPhone = encodeURIComponent(telefonoInput.value.replace(/\s+/g, ''));
+            const clientEmail = encodeURIComponent("rickymaldonado@gmail.com");
+
+            // Validar que el teléfono tenga al menos 9 dígitos después de +593
+            if (inputPhone.length < 13) {
+                phoneError.style.display = 'block';
+                return;
+            } else {
+                phoneError.style.display = 'none';
+            }
+
+            const url = `https://hooks.zapier.com/hooks/catch/19308114/2dgvzu2?clientEmail=${clientEmail}&leadName=${inputName}&leadPhone=${inputPhone}`;
+
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(HTTP error! status: ${response.status});
+                }
+                return response.json();
+            })
+            .then(result => {
+                console.log(result);
+                alert("¡Gracias por tu interés! Te contactaremos pronto.");
+                form.reset(); // Limpia el formulario después de enviar
+                telefonoInput.value = "+593"; // Restaurar el valor por defecto del teléfono
+            })
+            .catch(error => {
+                console.error(error);
+                alert("Te acabamos de enviar el catálogo por Whatsapp.");
+            });
+        });
 
 
 
@@ -548,7 +649,7 @@ document.querySelectorAll('.product').forEach(product => {
         const popupContent = `
             <span class="close-popup">&times;</span>
             <img src="${imgSrc}" alt="Imagen del producto">
-            <a href="https://wa.me/593XXXXXXXXX?text=${encodeURIComponent(descripcion)}" target="_blank">Enviar a WhatsApp</a>
+            <a href="https://wa.me/593997062776?text=${encodeURIComponent(descripcion)}" target="_blank">Enviar a WhatsApp</a>
         `;
 
         // Crear el pop-up
