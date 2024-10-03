@@ -431,6 +431,56 @@
     transform: scale(1.1);
 }
 
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    backdrop-filter: blur(5px); /* Desenfoque de fondo */
+    z-index: 999; /* Capa superior */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.popup img {
+    max-width: 100%;
+    height: auto;
+}
+
+.popup a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #25D366; /* Color de WhatsApp */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.close-popup {
+    position: absolute;
+    top: -34px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 75px;
+    color: #333; /* Color de la X */
+}
+
     </style>
 </head>
 <body>
@@ -470,13 +520,24 @@
         <h1>Colección Septiembre</h1>
         <div class="carousel">
             <button class="prev">&#10094;</button>
-            <div class="carousel-images">
-                <img src="joyanew1.png" data-img="quri2.jpeg">
-                <img src="joyanew2.png" data-img="quri3.jpeg">
-                <img src="joyanew4.png" data-img="quri4.jpeg">
-                <img src="joyanew1.png" data-img="quri5.jpeg">
-                <img src="quri1.png" data-img="quri1.jpeg">
+          <div class="carousel-images" style="transform: translateX(0px);">
+            <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 1">
+                <img src="joyanew1.png" alt="Joya 1" class="product-image">
             </div>
+            <div class="product" data-img="joyanew2.png" data-descripcion="Descripción del Producto 2">
+                <img src="joyanew2.png" alt="Joya 2" class="product-image">
+            </div>
+            <div class="product" data-img="joyanew4.png" data-descripcion="Descripción del Producto 3">
+                <img src="joyanew4.png" alt="Joya 3" class="product-image">
+            </div>
+            <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 4">
+                <img src="joyanew1.png" alt="Joya 4" class="product-image">
+            </div>
+            <div class="product" data-img="joyanew6.png" data-descripcion="Descripción del Producto 5">
+                <img src="joyanew6.png" alt="Joya 5" class="product-image">
+            </div>
+        </div>
+
             <button class="next">&#10095;</button>
         </div>
     </section>
@@ -736,6 +797,52 @@
                 alert("Te acabamos de enviar el catálogo por Whatsapp.");
             });
         });
+
+
+document.querySelectorAll('.product').forEach(product => {
+    product.addEventListener('click', () => {
+        const imgSrc = product.getAttribute('data-img');
+        const descripcion = product.getAttribute('data-descripcion');
+
+        // Crear la capa de desenfoque
+        const overlay = document.createElement('div');
+        overlay.classList.add('popup-overlay');
+        document.body.appendChild(overlay);
+
+        // Crear el contenido del pop-up
+        const popupContent = `
+            <span class="close-popup">&times;</span>
+            <img src="${imgSrc}" alt="Imagen del producto">
+            <a href="https://wa.me/593997062776?text=${encodeURIComponent(descripcion)}" target="_blank">Enviar a WhatsApp</a>
+        `;
+
+        // Crear el pop-up
+        const popup = document.createElement('div');
+        popup.classList.add('popup');
+        popup.innerHTML = popupContent;
+        document.body.appendChild(popup);
+
+        // Mostrar la capa y el pop-up
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+
+        // Cerrar el pop-up al hacer clic en la X o en la capa de desenfoque
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+            document.body.removeChild(overlay);
+            document.body.removeChild(popup);
+        });
+
+        document.querySelector('.close-popup').addEventListener('click', () => {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+            document.body.removeChild(overlay);
+            document.body.removeChild(popup);
+        });
+    });
+});
+
     </script>
 </body>
 </html>
