@@ -446,7 +446,7 @@
 
 .popup {
     display: none;
-    position: fixed;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -474,11 +474,11 @@
 
 .close-popup {
     position: absolute;
-    top: -32px;
+    top: 10px;
     right: 10px;
     cursor: pointer;
-    font-size: 70px;
-    color: #333;
+    font-size: 20px;
+    color: #333; /* Color de la X */
 }
 
 
@@ -522,7 +522,7 @@
     <h1>Colección Septiembre</h1>
     <div class="carousel">
         <button class="prev">&lt;</button> <!-- Botón de navegación izquierda -->
-        <div class="carousel-images" style="transform: translateX(0px);">
+       <div class="carousel-images" style="transform: translateX(0px);">
             <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 1">
                 <img src="joyanew1.png" alt="Joya 1" class="product-image">
             </div>
@@ -535,10 +535,11 @@
             <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 4">
                 <img src="joyanew1.png" alt="Joya 4" class="product-image">
             </div>
-            <div class="product" data-img="quri.jpeg" data-descripcion="Descripción del Producto 5">
-                <img src="quri1.png" alt="Joya 5" class="product-image">
+            <div class="product" data-img="joyanew6.png" data-descripcion="Descripción del Producto 5">
+                <img src="joyanew6.png" alt="Joya 5" class="product-image">
             </div>
         </div>
+
         <button class="next">&gt;</button> <!-- Botón de navegación derecha -->
     </div>
 </section>
@@ -857,6 +858,9 @@ document.querySelectorAll('.product').forEach(product => {
         });
     });
 });
+
+
+        
 
     </script>
 </body>
