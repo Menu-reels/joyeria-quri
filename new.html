@@ -28,7 +28,6 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            text-align: center;
         }
 
         header p {
@@ -43,17 +42,6 @@
            color: black;
         }
 
-        .slider .capa img {
-            width: 150px;
-            flex: 1;
-        }
-
-        .cart-icon {
-            font-size: 1.5rem;
-            flex: 1;
-            text-align: right;
-        }
-
         .slider {
             height: 100vh;
             background: url('anillo.jpg') center/cover no-repeat;
@@ -65,7 +53,6 @@
         h1 {
             font-size: 3rem;
             margin: 0;
-            padding: 0;
             white-space: nowrap;
             overflow: hidden;
             border-right: 2px solid black;
@@ -83,7 +70,6 @@
             50% { border-color: black }
         }
 
-        /* Nueva sección colección */
         .coleccion {
             padding: 50px 0;
             background-color: #f1f1f1;
@@ -135,233 +121,101 @@
             right: 0;
         }
 
-        /* Media queries para pantallas pequeñas */
-        @media (max-width: 768px) {
-            header p {
-                display: none; /* Oculta el texto del teléfono en móviles */
-            }
-
-            .phone-icon {
-                font-size: 1.5rem;
-                display: block;
-                text-align: left;
-                margin-left: 15px;
-            }
-
-            header img {
-                margin: 10px 0;
-            }
-
-            h1 {
-                font-size: 25px; /* Ajuste del tamaño del h1 en móviles */
-            }
-
-            .carousel-images img {
-                width: 250px;
-            }
+        /* Estilos para la sección de reseñas */
+        .reviews {
+            padding: 50px 0;
+            background-color: #f8f9fa;
+            text-align: center;
         }
 
-        @media (min-width: 769px) {
-            .phone-icon {
-                display: none; /* Oculta el icono del teléfono en pantallas grandes */
-            }
+        .reviews h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-
-  /* Estilos para la sección de reseñas */
-    .reviews {
-        padding: 50px 0;
-        background-color: #f8f9fa;
-        text-align: center;
-    }
-
-    .reviews h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-    }
-
-    .reviews-carousel {
-        overflow: hidden;
-        max-width: 80%;
-        margin: 0 auto;
-        position: relative;
-    }
-
-    .reviews-items {
-        display: flex;
-        animation: slide 15s infinite linear;
-    }
-
-    .review {
-        flex: 0 0 300px;
-        margin: 0 20px;
-        background-color: #fff;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-    }
-
-    .review img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        margin-bottom: 15px;
-    }
-
-    .review-info {
-        text-align: center;
-    }
-
-    .review h3 {
-        font-size: 1.5rem;
-        margin-bottom: 5px;
-    }
-
-    .review-date {
-        font-size: 0.9rem;
-        color: #888;
-        margin-bottom: 10px;
-    }
-
-    .stars {
-        color: #f1c40f;
-        margin-bottom: 10px;
-    }
-
-    .review-text {
-        font-size: 1rem;
-        color: #333;
-    }
-
-    @keyframes slide {
-        0% {
-            transform: translateX(0);
+        .reviews-carousel {
+            overflow: hidden;
+            max-width: 80%;
+            margin: 0 auto;
+            position: relative;
         }
-        100% {
-            transform: translateX(calc(-300px * 3)); /* Ajusta el número según la cantidad de reseñas */
-        }
-    }
 
-    /* Media queries para reseñas */
-    @media (max-width: 768px) {
+        .reviews-items {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
         .review {
-            flex: 0 0 250px;
+            flex: 0 0 300px;
+            margin: 0 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            flex-direction: column;
         }
 
-        @keyframes slide {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(calc(-250px * 3)); /* Ajusta según el tamaño de reseñas en móviles */
-            }
+        .review img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 15px;
         }
-    }
 
+        .review-info {
+            text-align: center;
+        }
 
-  .location {
-        padding: 50px 0;
-        background-color: #fff;
-        text-align: center;
-    }
+        .review h3 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
 
-    .location h1 {
-        font-size: 2.5rem;
-        margin-bottom: 20px;
-        color: #333;
-    }
+        .review-date {
+            font-size: 0.9rem;
+            color: #888;
+            margin-bottom: 10px;
+        }
 
-    .map-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+        .stars {
+            color: #f1c40f;
+            margin-bottom: 10px;
+        }
 
-    .map-container iframe {
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        width: 80%;
-        max-width: 600px;
-        height: 450px;
-    }
+        .review-text {
+            font-size: 1rem;
+            color: #333;
+        }
 
-    /* Media query para ajustar el mapa en pantallas pequeñas */
-    @media (max-width: 768px) {
-        .map-container iframe {
-            width: 100%;
-            height: 350px;
+        .location {
+            padding: 50px 0;
+            background-color: #fff;
+            text-align: center;
         }
 
         .location h1 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
         }
-    }
 
- .ejemplo {
-        padding: 50px 0;
-        background-color: #f1f1f1;
-        text-align: center;
-    }
-
-    .ejemplo h1 {
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-        color: #333;
-    }
-
-    .ejemplo-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 20px;
-    padding: 20px;
-
-    }
-
-    .ejemplo-image img {
-        width: 100%;
-        max-width: 500px;
-        border-radius: 15px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .ejemplo-text {
-        max-width: 600px;
-        font-size: 1.2rem;
-        color: #555;
-        line-height: 1.6;
-        text-align: left;
-        padding: 0 20px;
-    }
-
-    /* Media query para pantallas pequeñas */
-    @media (max-width: 768px) {
-        .ejemplo-container {
-            flex-direction: column;
+        .map-container {
+            display: flex;
+            justify-content: center;
             align-items: center;
         }
 
-        .ejemplo-text {
-            text-align: center;
-            padding: 0;
+        .map-container iframe {
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            height: 450px;
         }
 
-        .ejemplo h1 {
-            font-size: 2rem;
-        }
-
-        .ejemplo-container {
-        flex-wrap: wrap;
-
-        }
-    }
-
-
-
- /* Estilos para el formulario */
+        /* Estilos para el formulario */
         #contactForm {
             margin-top: 20px;
             display: flex;
@@ -411,25 +265,63 @@
             margin-top: 10px;
         }
 
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
 
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
-}
+        .whatsapp-button img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
 
-.whatsapp-button img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
+        .whatsapp-button img:hover {
+            transform: scale(1.1);
+        }
 
-.whatsapp-button img:hover {
-    transform: scale(1.1);
-}
+        /* Media queries para pantallas pequeñas */
+        @media (max-width: 768px) {
+            header p {
+                display: none; /* Oculta el texto del teléfono en móviles */
+            }
+
+            .phone-icon {
+                font-size: 1.5rem;
+                display: block;
+                text-align: left;
+                margin-left: 15px;
+            }
+
+            header img {
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 25px; /* Ajuste del tamaño del h1 en móviles */
+            }
+
+            .carousel-images img {
+                width: 250px;
+            }
+
+            .review {
+                flex: 0 0 250px;
+            }
+
+            .map-container iframe {
+                width: 100%;
+                height: 350px;
+            }
+
+            .location h1 {
+                font-size: 2rem;
+            }
+        }
 
 
 .popup-overlay {
@@ -481,320 +373,165 @@
     color: #333; /* Color de la X */
 }
 
-
     </style>
 </head>
 <body>
     <header>
-        <p><a href="tel:+593 99 706 2776">+593 99 706 2776</a></p>
+        <p><a href="tel:+593997062776">+593 99 706 2776</a></p>
         <i class="fas fa-phone-alt phone-icon"></i> <!-- Icono de teléfono para móviles -->
-       
         <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
         </div>
     </header>
+
     <section class="slider">
         <div class="capa">
             <img src="logo-ia.png" alt="Logo Joyería Quri">
-            <h1>Tu Anillo Perfecto</h1>
-
-
-                <form id="contactForm" style="margin-top: 20px;">
-                    <div>
-                        <label for="name">Nombre:</label>
-                        <input type="text" name="name" required>
-                    </div>
-                    <div>
-                        <label for="phone">Teléfono:</label>
-                        <input type="tel" id="phone" name="phone" value="+593" required>
-                    </div>
-                    <button type="submit">Enviar</button>
-                    <div id="phoneError" style="display: none; color: red;">El número de teléfono tiene que tener al menos 9 dígitos.</div>
-                </form>
-
-
+            <h1>Tu joyería de confianza</h1>
         </div>
     </section>
 
-    <!-- Nueva sección Colección -->
-    <section class="coleccion">
-        <h1>Colección Septiembre</h1>
-        <div class="carousel-images" style="transform: translateX(0px);">
-            <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 1">
-                <img src="joyanew1.png" alt="Joya 1" class="product-image">
-            </div>
-            <div class="product" data-img="joyanew2.png" data-descripcion="Descripción del Producto 2">
-                <img src="joyanew2.png" alt="Joya 2" class="product-image">
-            </div>
-            <div class="product" data-img="joyanew4.png" data-descripcion="Descripción del Producto 3">
-                <img src="joyanew4.png" alt="Joya 3" class="product-image">
-            </div>
-            <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 4">
-                <img src="joyanew1.png" alt="Joya 4" class="product-image">
-            </div>
-            <div class="product" data-img="joyanew6.png" data-descripcion="Descripción del Producto 5">
-                <img src="joyanew6.png" alt="Joya 5" class="product-image">
-            </div>
-        </div>
-
-    </section>
-
-<!-- Nueva sección Ejemplo -->
-<section class="ejemplo">
-    <h1>Historias de Amor</h1>
-    <div class="ejemplo-container">
-        <div class="ejemplo-image">
-            <img src="ejemplo.jpg" alt="Boda feliz con anillo perfecto">
-        </div>
-        <div class="ejemplo-text">
-            <p>
-                María y Juan encontraron en Joyería Quri el anillo perfecto para sellar su amor en una ceremonia inolvidable. 
-                Tras meses de preparación, el anillo de oro blanco que eligieron brilló tanto como su felicidad el día de la boda. 
-                Cada detalle del anillo reflejaba la dedicación y el amor que ambos compartían. Hoy, siguen celebrando su unión, 
-                agradecidos por haber encontrado el símbolo ideal para este gran día.
-            </p>
-        </div>
-    </div>
-</section>
-
-
-
-
-    <section class="reviews">
-    <h1>Lo que dicen nuestros clientes</h1>
-    <div class="reviews-carousel">
-        <div class="reviews-items">
-            <div class="review">
-                <img src="cliente1.jpg" alt="Cliente 1">
-                <div class="review-info">
-                    <h3>Juan Pérez</h3>
-                    <p class="review-date">12 de septiembre de 2024</p>
-                    <div class="stars">
-                        &#9733;&#9733;&#9733;&#9733;&#9733;
+    <div class="coleccion">
+        <h1>Nuestra Colección</h1>
+        <div class="carousel">
+            <button class="prev">&#10094;</button>
+          <div class="carousel-images" style="transform: translateX(0px);">
+                    <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 1">
+                        <img src="joyanew1.png" alt="Joya 1" class="product-image">
                     </div>
-                    <p class="review-text">¡Increíble atención y productos de gran calidad! Estoy muy contento con mi compra.</p>
+                    <div class="product" data-img="joyanew2.png" data-descripcion="Descripción del Producto 2">
+                        <img src="joyanew2.png" alt="Joya 2" class="product-image">
+                    </div>
+                    <div class="product" data-img="joyanew4.png" data-descripcion="Descripción del Producto 3">
+                        <img src="joyanew4.png" alt="Joya 3" class="product-image">
+                    </div>
+                    <div class="product" data-img="joyanew1.png" data-descripcion="Descripción del Producto 4">
+                        <img src="joyanew1.png" alt="Joya 4" class="product-image">
+                    </div>
+                    <div class="product" data-img="joyanew6.png" data-descripcion="Descripción del Producto 5">
+                        <img src="joyanew6.png" alt="Joya 5" class="product-image">
+                    </div>
                 </div>
-            </div>
-            <div class="review">
-                <img src="cliente2.jpg" alt="Cliente 2">
-                <div class="review-info">
-                    <h3>María García</h3>
-                    <p class="review-date">5 de agosto de 2024</p>
-                    <div class="stars">
-                        &#9733;&#9733;&#9733;&#9733;&#9733;
-                    </div>
-                    <p class="review-text">La joyería es preciosa y llegó justo a tiempo. Muy recomendados.</p>
-                </div>
-            </div>
-            <div class="review">
-    <img src="cliente4.jpg" alt="Cliente 4">
-    <div class="review-info">
-        <h3>Sofía López</h3>
-        <p class="review-date">18 de junio de 2024</p>
-        <div class="stars">
-            &#9733;&#9733;&#9733;&#9733;&#9733;
-        </div>
-        <p class="review-text">¡Los diseños son hermosos! El equipo fue muy atento y recibí mi pedido a tiempo. ¡Sin duda volveré a comprar!</p>
-    </div>
-</div>
-<div class="review">
-    <img src="cliente5.jpg" alt="Cliente 5">
-    <div class="review-info">
-        <h3>Diego Vargas</h3>
-        <p class="review-date">7 de mayo de 2024</p>
-        <div class="stars">
-            &#9733;&#9733;&#9733;&#9733;&#9733;
-        </div>
-        <p class="review-text">Excelente experiencia de compra. La joya es de una calidad excepcional y la atención fue muy profesional.</p>
-    </div>
-</div>
-<div class="review">
-    <img src="cliente6.jpg" alt="Cliente 6">
-    <div class="review-info">
-        <h3>Elena Martínez</h3>
-        <p class="review-date">30 de abril de 2024</p>
-        <div class="stars">
-            &#9733;&#9733;&#9733;&#9733;&#9734;
-        </div>
-        <p class="review-text">El anillo es increíblemente detallado y hermoso. ¡Lo recomiendo al 100%! Solo tardó un poco en llegar.</p>
-    </div>
-</div>
 
-            <div class="review">
-                <img src="cliente3.jpg" alt="Cliente 3">
-                <div class="review-info">
-                    <h3>Carlos Fernández</h3>
-                    <p class="review-date">25 de julio de 2024</p>
-                    <div class="stars">
-                        &#9733;&#9733;&#9733;&#9733;&#9734;
+            <button class="next">&#10095;</button>
+        </div>
+    </div>
+
+    <div class="reviews">
+        <h1>Opiniones de Nuestros Clientes</h1>
+        <div class="reviews-carousel">
+            <div class="reviews-items">
+                <div class="review">
+                    <img src="client1.jpg" alt="Cliente 1">
+                    <div class="review-info">
+                        <h3>Cliente 1</h3>
+                        <div class="review-date">Enero 2024</div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <div class="review-text">¡Me encantó mi anillo! Excelente calidad.</div>
                     </div>
-                    <p class="review-text">El anillo que compré es perfecto. ¡Gracias por el excelente servicio!</p>
+                </div>
+                <div class="review">
+                    <img src="client2.jpg" alt="Cliente 2">
+                    <div class="review-info">
+                        <h3>Cliente 2</h3>
+                        <div class="review-date">Febrero 2024</div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+                        <div class="review-text">Muy bonito todo, volveré a comprar.</div>
+                    </div>
+                </div>
+                <div class="review">
+                    <img src="client3.jpg" alt="Cliente 3">
+                    <div class="review-info">
+                        <h3>Cliente 3</h3>
+                        <div class="review-date">Marzo 2024</div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                        <div class="review-text">Servicio al cliente excepcional.</div>
+                    </div>
+                </div>
+                <div class="review">
+                    <img src="client4.jpg" alt="Cliente 4">
+                    <div class="review-info">
+                        <h3>Cliente 4</h3>
+                        <div class="review-date">Abril 2024</div>
+                        <div class="stars">&#9733;&#9733;&#9733;&#9734;&#9734;</div>
+                        <div class="review-text">Un poco caro, pero vale la pena.</div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
 
-<a href="https://api.whatsapp.com/send?phone=+593997062776&text=Quiero%20hacer%20un%20medido" target="_blank" class="whatsapp-button">
-    <img src="logowt.png" alt="WhatsApp" />
-</a>
-
-<!-- Nueva sección Ubicación -->
-<section class="location">
-    <h1>Encuéntranos en el Centro Comercial Iñaquito</h1>
-    <div class="map-container">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6382.300696305689!2d-78.49004403435103!3d-0.18341868934865712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a766b58c27b%3A0x1ff8a1d0e2d1c9!2sCentro%20Comercial%20I%C3%B1aquito%2C%20Quito%20017045%2C%20Ecuador!5e0!3m2!1ses!2sus!4v1693248594296!5m2!1ses!2sus" 
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
+    <div class="location">
+        <h1>Visítanos en</h1>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10008.634031150135!2d-78.50216545024038!3d-0.22849318988968856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d5d9b1c45e13e9%3A0x4da38b6b2de9da7e!2sQuri%20Joyeros!5e0!3m2!1ses-419!2sec!4v1670583035672!5m2!1ses-419!2sec" allowfullscreen="" loading="lazy"></iframe>
+        </div>
     </div>
-</section>
+
+    <div class="contact">
+        <h1>Contáctanos</h1>
+        <form id="contactForm" onsubmit="return validatePhoneNumber()">
+            <div>
+                <label for="name">Nombre:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div>
+                <label for="email">Correo Electrónico:</label>
+                <input type="email" id="email" required>
+            </div>
+            <div>
+                <label for="phone">Teléfono:</label>
+                <input type="tel" id="phone" placeholder="+593XXXXXXXXX" required>
+                <div id="phoneError">El número de teléfono debe comenzar con +593 y no contener espacios.</div>
+            </div>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <div class="whatsapp-button">
+        <a href="https://api.whatsapp.com/send?phone=593997062776" target="_blank">
+            <img src="whatsapp-icon.png" alt="WhatsApp">
+        </a>
+    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var h1 = document.querySelector('h1');
-            var newText = 'Recibe el Catálogo por Whatsapp';
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+        const carouselImages = document.querySelector('.carousel-images');
 
-            setTimeout(function() {
-                h1.textContent = newText;
-            }, 4000);
+        let index = 0;
+        const totalImages = carouselImages.children.length;
 
-              // Cambiar imagen en la sección Ejemplo cada 5 segundos
-        const ejemploImage = document.querySelector('.ejemplo-image img');
-        const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
-        let currentImageIndex = 0;
+        function updateCarousel() {
+            const offset = -index * 320; // Adjusted based on image width and margin
+            carouselImages.style.transform = `translateX(${offset}px)`;
+        }
 
-        setInterval(() => {
-            currentImageIndex = (currentImageIndex + 1) % images.length; // Cambiar el índice
-            ejemploImage.src = images[currentImageIndex]; // Actualizar la imagen
-        }, 5000); // Cambiar cada 5 segundos
-
-            // Carousel functionality
-            const carousel = document.querySelector('.carousel-images');
-            const prevBtn = document.querySelector('.prev');
-            const nextBtn = document.querySelector('.next');
-            let currentIndex = 0;
-
-            const totalImages = document.querySelectorAll('.carousel-images img').length;
-            const imageWidth = document.querySelector('.carousel-images img').clientWidth;
-
-            function updateCarousel() {
-                carousel.style.transform = translateX(${-currentIndex * (imageWidth + 20)}px);
-            }
-
-            nextBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalImages;
-                updateCarousel();
-            });
-
-            prevBtn.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalImages) % totalImages;
-                updateCarousel();
-            });
+        prevButton.addEventListener('click', () => {
+            index = (index > 0) ? index - 1 : totalImages - 1;
+            updateCarousel();
         });
 
+        nextButton.addEventListener('click', () => {
+            index = (index < totalImages - 1) ? index + 1 : 0;
+            updateCarousel();
+        });
 
-  // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
-    document.addEventListener('DOMContentLoaded', function() {
-        
-        const reviewContainer = document.querySelector('.reviews-items');
-        let clone = reviewContainer.innerHTML; // Clonar las reseñas
+        function validatePhoneNumber() {
+            const phoneInput = document.getElementById('phone');
+            const phoneError = document.getElementById('phoneError');
+            const regex = /^\+593[0-9]{9}$/; // Match +593 followed by 9 digits
 
-        setInterval(() => {
-            reviewContainer.innerHTML += clone; // Añadir el clon de las reseñas
-        }, 15000); // Cada 15 segundos se duplicarán las reseñas para dar la sensación de carrusel continuo
-    });
-
-
- // Cambiar ejemplo.jpg a ejemplo2.jpg cada 5 segundos
-    const ejemploImage = document.querySelector('.ejemplo-image img');
-    const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
-    let currentImageIndex = 0;
-
-    setInterval(() => {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        ejemploImage.src = images[currentImageIndex];
-    }, 5000);
-
-
-    const form = document.getElementById('contactForm');
-        const telefonoInput = document.getElementById('phone');
-        const phoneError = document.getElementById('phoneError');
-
-        // Función para sanear y formatear el teléfono en tiempo real
-        telefonoInput.addEventListener("input", function () {
-            let telefono = telefonoInput.value.replace(/\s+/g, ''); // Eliminar espacios
-            telefono = telefono.replace(/[^0-9+]/g, ''); // Eliminar caracteres no permitidos
-
-            // Asegurarse de que siempre empiece con +593
-            if (!telefono.startsWith("+593")) {
-                telefono = "+593" + telefono.replace(/^(\+593)/, ''); // Reemplazar cualquier otro código inicial
-            }
-
-            // Limitar la longitud máxima a 15 caracteres (incluyendo el +593)
-            if (telefono.length > 15) {
-                telefono = telefono.slice(0, 15);
-            }
-
-            telefonoInput.value = telefono;
-
-            // Validar longitud del teléfono en tiempo real (al menos 9 dígitos después de +593)
-            if (telefono.length >= 13) {
-                phoneError.style.display = 'none';
-                form.querySelector('button[type="submit"]').disabled = false;
-            } else {
+            if (!regex.test(phoneInput.value)) {
                 phoneError.style.display = 'block';
-                form.querySelector('button[type="submit"]').disabled = true;
-            }
-        });
-
-        // Evento de envío del formulario
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const inputName = encodeURIComponent(form.querySelector('input[name="name"]').value);
-            const inputPhone = encodeURIComponent(telefonoInput.value.replace(/\s+/g, ''));
-            const clientEmail = encodeURIComponent("rickymaldonado@gmail.com");
-
-            // Validar que el teléfono tenga al menos 9 dígitos después de +593
-            if (inputPhone.length < 13) {
-                phoneError.style.display = 'block';
-                return;
-            } else {
-                phoneError.style.display = 'none';
+                return false; // Prevent form submission
             }
 
-            const url = `https://hooks.zapier.com/hooks/catch/19308114/2dgvzu2?clientEmail=${clientEmail}&leadName=${inputName}&leadPhone=${inputPhone}`;
+            phoneError.style.display = 'none'; // Hide error message if valid
+            return true; // Allow form submission
+        }
 
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({})
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(HTTP error! status: ${response.status});
-                }
-                return response.json();
-            })
-            .then(result => {
-                console.log(result);
-                alert("¡Gracias por tu interés! Te contactaremos pronto.");
-                form.reset(); // Limpia el formulario después de enviar
-                telefonoInput.value = "+593"; // Restaurar el valor por defecto del teléfono
-            })
-            .catch(error => {
-                console.error(error);
-                alert("Te acabamos de enviar el catálogo por Whatsapp.");
-            });
-        });
+
 
 
 document.querySelectorAll('.product').forEach(product => {
