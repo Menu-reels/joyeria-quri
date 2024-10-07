@@ -676,12 +676,14 @@
             referrerpolicy="no-referrer-when-downgrade">
         </iframe>
     </div>
-    <p>Nuestra Oficina: Av. Amazonas N2245, entre Ramires Dávalos y Carrión, al centro norte de Quito.</p>
+    <p>Nuestra Oficina: Av. Amazonas N2245, entre Ramires Dávalos y Carrión, al centro norte de Quito, Ecuador.</p>
     <div class="button-container">
-        <a href="https://www.google.com/maps?q=Av.+Amazonas+N2245" class="btn-location">Ver Ubicación</a>
+        <a href="https://www.google.com/maps/place/Av.+R%C3%ADo+Amazonas,+Quito,+Ecuador/@-0.1774322,-78.4885018,17z/data=!3m1!4b1!4m6!3m5!1s0x91d59a14be543f1d:0x2d3818550ca8f27!8m2!3d-0.1774376!4d-78.4859215!16s%2Fg%2F1hc4fpvm9?entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D" class="btn-location">Ver Ubicación</a>
         <a href="#" class="btn-schedule" onclick="openPopupAgenda()">Agendar</a>
     </div>
 </section>
+
+
 
 <!-- Pop-up para Agendar -->
 <div id="popupagenda" class="popup">
@@ -902,7 +904,7 @@ document.querySelectorAll('.product').forEach(product => {
     });
 });
 
-
+const popupAgenda = document.getElementById("popupagenda");
 
 function closePopupAgenda() {
         document.getElementById("popupagenda").style.display = "none";
