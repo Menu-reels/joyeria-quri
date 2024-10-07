@@ -488,14 +488,18 @@
         margin: 20px 0;
     }
     .btn-schedule {
-        display: inline-block;
-        padding: 10px 20px;
-        background-color: #4CAF50; /* Cambia el color si lo deseas */
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s;
-    }
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-family: auto;
+    font-size: 25px;
+}
     .btn-schedule:hover {
         background-color: #45a049; /* Cambia el color al pasar el mouse */
     }
@@ -799,12 +803,12 @@
     <p>Nuestra Oficina: Av. Amazonas N2245, entre Ramires Dávalos y Carrión, al centro norte de Quito, Ecuador.</p>
     <div class="button-container">
         <a href="https://www.google.com/maps/place/Av.+R%C3%ADo+Amazonas,+Quito,+Ecuador/@-0.1774322,-78.4885018,17z/data=!3m1!4b1!4m6!3m5!1s0x91d59a14be543f1d:0x2d3818550ca8f27!8m2!3d-0.1774376!4d-78.4859215!16s%2Fg%2F1hc4fpvm9?entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D" class="btn-location">Ver Ubicación</a>
-        <a href="#" class="btn-schedule" onclick="openPopupAgenda()">Agendar</a>
+       
     </div>
 </section>
 
 
-
+ <a href="#" class="btn-schedule" id="agendarReunion">Agendar Encuentro</a>
 
 
 
@@ -1042,6 +1046,21 @@ window.addEventListener('click', function(event) {
         closePopup();
     }
 });
+
+
+
+// Obtener el botón y el pop-up
+const agendarReunionButton = document.getElementById('agendarReunion');
+const popupAgenda = document.getElementById('popupagenda');
+
+// Función para mostrar el pop-up
+function showPopup() {
+    popupAgenda.style.display = 'flex';
+}
+
+// Evento para mostrar el pop-up al hacer clic en el botón
+agendarReunionButton.addEventListener('click', showPopup);
+
 
     </script>
 </body>
