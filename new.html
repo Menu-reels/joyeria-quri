@@ -501,7 +501,70 @@
     }
 
 
- 
+ /* Estilos para el pop-up */
+.popupagenda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+/* Estilos para el contenido del pop-up */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Ajusta el tamaño según sea necesario */
+}
+
+/* Estilos para los encabezados */
+.popup-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* Color del texto */
+}
+
+/* Estilos para los labels */
+.popup-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Estilos para los inputs y selects */
+.popup-content input[type="text"],
+.popup-content input[type="tel"],
+.popup-content input[type="email"],
+.popup-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilos para el botón de envío */
+.popup-content button {
+    background-color: #28a745; /* Color del botón */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup-content button:hover {
+    background-color: #218838; /* Color del botón al pasar el cursor */
+}
+
 
     </style>
 </head>
@@ -719,6 +782,7 @@
         </form>
     </div>
 </div>
+
 
 <!-- Nueva sección Ubicación -->
 <section class="location">
