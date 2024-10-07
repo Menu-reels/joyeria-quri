@@ -687,34 +687,11 @@
     <img src="logowt.png" alt="WhatsApp" />
 </a>
 
-<!-- Nueva sección Ubicación -->
-<section class="location">
-    <h1>Encuéntranos en Av. Amazonas N2245</h1>
-    <div class="map-container">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6382.300696305689!2d-78.49004403435103!3d-0.18341868934865712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a766b58c27b%3A0x1ff8a1d0e2d1c9!2sCentro%20Comercial%20I%C3%B1aquito%2C%20Quito%20017045%2C%20Ecuador!5e0!3m2!1ses!2sus!4v1693248594296!5m2!1ses!2sus" 
-            width="600" 
-            height="450" 
-            style="border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-    <p>Nuestra Oficina: Av. Amazonas N2245, entre Ramires Dávalos y Carrión, al centro norte de Quito, Ecuador.</p>
-    <div class="button-container">
-        <a href="https://www.google.com/maps/place/Av.+R%C3%ADo+Amazonas,+Quito,+Ecuador/@-0.1774322,-78.4885018,17z/data=!3m1!4b1!4m6!3m5!1s0x91d59a14be543f1d:0x2d3818550ca8f27!8m2!3d-0.1774376!4d-78.4859215!16s%2Fg%2F1hc4fpvm9?entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D" class="btn-location">Ver Ubicación</a>
-        <a href="#" class="btn-schedule" onclick="openPopupAgenda()">Agendar</a>
-    </div>
-</section>
-
-
 
 <!-- Pop-up para Agendar -->
-<div id="popupagenda" class="popup">
+<div id="popupagenda" class="popupagenda">
     <div class="popup-content">
-        <span class="close" onclick="closePopupAgenda()">&times;</span>
-        <h2>Solicitar Agendamiento</h2>
+        <h2>Solicitar Encuentro</h2>
         <form id="agendaForm">
             <label for="name">Nombre:</label>
             <input type="text" id="name" name="name" required>
@@ -742,6 +719,31 @@
         </form>
     </div>
 </div>
+
+<!-- Nueva sección Ubicación -->
+<section class="location">
+    <h1>Encuéntranos en Av. Amazonas N2245</h1>
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6382.300696305689!2d-78.49004403435103!3d-0.18341868934865712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a766b58c27b%3A0x1ff8a1d0e2d1c9!2sCentro%20Comercial%20I%C3%B1aquito%2C%20Quito%20017045%2C%20Ecuador!5e0!3m2!1ses!2sus!4v1693248594296!5m2!1ses!2sus" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <p>Nuestra Oficina: Av. Amazonas N2245, entre Ramires Dávalos y Carrión, al centro norte de Quito, Ecuador.</p>
+    <div class="button-container">
+        <a href="https://www.google.com/maps/place/Av.+R%C3%ADo+Amazonas,+Quito,+Ecuador/@-0.1774322,-78.4885018,17z/data=!3m1!4b1!4m6!3m5!1s0x91d59a14be543f1d:0x2d3818550ca8f27!8m2!3d-0.1774376!4d-78.4859215!16s%2Fg%2F1hc4fpvm9?entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D" class="btn-location">Ver Ubicación</a>
+        <a href="#" class="btn-schedule" onclick="openPopupAgenda()">Agendar</a>
+    </div>
+</section>
+
+
+
+
 
 
     <script>
@@ -929,25 +931,38 @@ document.querySelectorAll('.product').forEach(product => {
     });
 });
 
-const popupAgenda = document.getElementById("popupagenda");
 
-function closePopupAgenda() {
-        document.getElementById("popupagenda").style.display = "none";
-    }
+document.getElementById('agendaForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío predeterminado del formulario
 
-    window.onclick = function(event) {
-        const popup = document.getElementById("popupagenda");
-        if (event.target === popup) {
-            closePopupAgenda();
-        }
-    };
+    // Recoger los datos del formulario y codificarlos
+    const formData = new URLSearchParams();
+    formData.append('name', encodeURIComponent(document.getElementById('name').value));
+    formData.append('phone', encodeURIComponent(document.getElementById('phone').value));
+    formData.append('email', encodeURIComponent(document.getElementById('email').value));
+    formData.append('budget', encodeURIComponent(document.getElementById('budget').value));
+    formData.append('preference', encodeURIComponent(document.getElementById('preference').value));
 
-    document.getElementById("agendaForm").onsubmit = function(event) {
-        event.preventDefault();
-        // Aquí puedes agregar la lógica para enviar el formulario
-        alert("Formulario enviado");
-        closePopupAgenda();
-    };
+    // Enviar los datos al webhook de Zapier
+    fetch('https://hooks.zapier.com/hooks/catch/19308114/2malrah/', {
+        method: 'POST',
+        mode: 'no-cors', // Usar no-cors
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // Cambiar el tipo de contenido
+        },
+        body: formData.toString(), // Convertir los datos a string
+    })
+    .then(response => {
+        alert('Formulario enviado con éxito.');
+        // Aquí puedes cerrar el pop-up si lo deseas
+        // document.getElementById('popupagenda').style.display = 'none';
+    })
+    .catch(error => {
+        alert('Error de conexión: ' + error.message);
+    });
+});
+
+
     </script>
 </body>
 </html>
