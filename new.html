@@ -753,7 +753,7 @@
 
 
 <!-- Pop-up para Agendar -->
-<div id="popupagenda" class="popupagenda">
+<div id="popupagenda" class="popupagenda" style="display: none;">
     <div class="popup-content">
         <span class="close-popup2">×</span>
         <h2>Solicitar Encuentro</h2>
@@ -779,6 +779,17 @@
                 <option value="domicilio">Desplazo a Domicilio</option>
                 <option value="oficinas">Oficinas</option>
             </select>
+
+            <label for="date">Fecha de Reunión:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Hora de Reunión:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label>
+                <input type="checkbox" id="commitment" name="commitment" required>
+                Acepto y me comprometo a ir a la reunión
+            </label>
 
             <button type="submit">Enviar</button>
         </form>
@@ -1008,6 +1019,9 @@ document.getElementById('agendaForm').addEventListener('submit', function(event)
     formData.append('email', encodeURIComponent(document.getElementById('email').value));
     formData.append('budget', encodeURIComponent(document.getElementById('budget').value));
     formData.append('preference', encodeURIComponent(document.getElementById('preference').value));
+    formData.append('date', encodeURIComponent(document.getElementById('date').value));
+    formData.append('time', encodeURIComponent(document.getElementById('time').value));
+    formData.append('commitment', encodeURIComponent(document.getElementById('commitment').checked)); // Valor del checkbox
 
     // Enviar los datos al webhook de Zapier
     fetch('https://hooks.zapier.com/hooks/catch/19308114/2malrah/', {
@@ -1020,32 +1034,29 @@ document.getElementById('agendaForm').addEventListener('submit', function(event)
     })
     .then(response => {
         alert('Formulario enviado con éxito.');
-        // Aquí puedes cerrar el pop-up si lo deseas
-        // document.getElementById('popupagenda').style.display = 'none';
+        closePopup(); // Cerrar el pop-up después de enviar el formulario
     })
     .catch(error => {
         alert('Error de conexión: ' + error.message);
     });
 });
 
-// Obtener elementos del DOM
-const popup = document.getElementById('popupagenda');
-const closeButton = document.querySelector('.close-popup2');
-
 // Función para cerrar el pop-up
 function closePopup() {
-    popup.style.display = 'none';
+    document.getElementById('popupagenda').style.display = 'none';
 }
 
 // Evento para cerrar el pop-up al hacer clic en el botón de cierre
-closeButton.addEventListener('click', closePopup);
+document.querySelector('.close-popup2').addEventListener('click', closePopup);
 
 // Evento para cerrar el pop-up al hacer clic fuera del contenido
 window.addEventListener('click', function(event) {
+    const popup = document.getElementById('popupagenda');
     if (event.target === popup) {
         closePopup();
     }
 });
+
 
 
 
