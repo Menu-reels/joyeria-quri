@@ -674,10 +674,45 @@
         </iframe>
     </div>
     <p>Nuestra Oficina: Av. Amazonas N2245, entre Ramires Dávalos y Carrión, al centro norte de Quito.</p>
-    <div class="schedule-button">
-        <a href="tu-enlace-para-agendar" class="btn-schedule">Agendar Reunión</a>
+    <div class="button-container">
+        <a href="https://www.google.com/maps?q=Av.+Amazonas+N2245" class="btn-location">Ver Ubicación</a>
+        <a href="#" class="btn-schedule" onclick="openPopupAgenda()">Agendar</a>
     </div>
 </section>
+
+<!-- Pop-up para Agendar -->
+<div id="popupagenda" class="popup">
+    <div class="popup-content">
+        <span class="close" onclick="closePopupAgenda()">&times;</span>
+        <h2>Solicitar Agendamiento</h2>
+        <form id="agendaForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="budget">Presupuesto Estimado de Joya:</label>
+            <select id="budget" name="budget" required>
+                <option value="0-500">$0 - $500</option>
+                <option value="500-1000">$500 - $1000</option>
+                <option value="1000-2000">$1000 - $2000</option>
+            </select>
+
+            <label for="preference">Preferencia:</label>
+            <select id="preference" name="preference" required>
+                <option value="domicilio">Desplazo a Domicilio</option>
+                <option value="oficinas">Oficinas</option>
+            </select>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -863,6 +898,30 @@ document.querySelectorAll('.product').forEach(product => {
         });
     });
 });
+
+
+
+  function openPopupAgenda() {
+        document.getElementById("popupagenda").style.display = "block";
+    }
+
+    function closePopupAgenda() {
+        document.getElementById("popupagenda").style.display = "none";
+    }
+
+    window.onclick = function(event) {
+        const popup = document.getElementById("popupagenda");
+        if (event.target === popup) {
+            popup.style.display = "none";
+        }
+    };
+
+    document.getElementById("agendaForm").onsubmit = function(event) {
+        event.preventDefault();
+        // Aquí puedes agregar la lógica para enviar el formulario
+        alert("Formulario enviado");
+        closePopupAgenda();
+    };
 
     </script>
 </body>
