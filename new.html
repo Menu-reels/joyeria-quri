@@ -590,7 +590,7 @@
 <body>
     <header>
         <p><a href="tel:+593 99 706 2776">+593 99 706 2776</a></p>
-        <i class="fas fa-phone-alt phone-icon"></i> <!-- Icono de teléfono para móviles -->
+        <i class="fas fa-phone-alt phone-icon" id="phoneIcon"></i>
        
         <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
@@ -839,6 +839,18 @@
 
 
     <script>
+
+// TELEFONMO
+
+const phoneIcon = document.getElementById('phoneIcon');
+// Añadir un evento click al ícono del teléfono
+phoneIcon.addEventListener('click', function() {
+    window.location.href = "tel:+593 99 706 2776";
+});
+
+
+
+
         document.addEventListener('DOMContentLoaded', function() {
     // Cambiar el texto del h1 después de 4 segundos
     var h1 = document.querySelector('h1');
