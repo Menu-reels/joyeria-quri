@@ -128,6 +128,7 @@
             border: none;
             padding: 10px;
             cursor: pointer;
+            z-index: 3;
         }
 
         .prev {
@@ -875,25 +876,25 @@ phoneIcon.addEventListener('click', function() {
     }, 5000); // Cambiar cada 5 segundos
 
     // Funcionalidad del carrusel
-    document.querySelectorAll('.carousel').forEach(carousel => {
-    const carouselImages = carousel.querySelector('.carousel-images');
-    const prevBtn = carousel.querySelector('.prev');
-    const nextBtn = carousel.querySelector('.next');
+    const carousel = document.querySelector('.carousel-images');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
     let currentIndex = 0;
-    const totalImages = carousel.querySelectorAll('.carousel-images img').length;
-    const imageWidth = carousel.querySelector('.carousel-images img').clientWidth;
+
+    const totalImages = document.querySelectorAll('.carousel-images img').length;
+    const imageWidth = document.querySelector('.carousel-images img').clientWidth;
 
     function updateCarousel() {
-        carouselImages.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`;
+        carousel.style.transform = translateX(${-currentIndex * (imageWidth + 20)}px); // Corregir comillas invertidas
     }
 
     nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalImages;
+        currentIndex = (currentIndex + 1) % totalImages; // Aumentar el índice
         updateCarousel();
     });
 
     prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Disminuir el índice
         updateCarousel();
     });
 });
