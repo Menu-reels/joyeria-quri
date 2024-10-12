@@ -626,7 +626,7 @@
     <!-- Nueva sección Colección -->
     <section class="coleccion">
         <h1>Colección Septiembre</h1>
-        <div class="carousel">
+        <div class="carousel" id="carousel1">
             <button class="prev">&#10094;</button>
           <div class="carousel-images" style="transform: translateX(0px);">
             <div class="product" data-img="joyanew1.png" data-descripcion="Hola me está interesando este producto >> https://www.qurijoyas.com/joyanew1.png">
@@ -649,7 +649,7 @@
 
  <section class="coleccion">
         <h1>Colección Octubre</h1>
-        <div class="carousel">
+        <div class="carousel" id="carousel2">
             <button class="prev">&#10094;</button>
           <div class="carousel-images" style="transform: translateX(0px);">
            
@@ -875,25 +875,25 @@ phoneIcon.addEventListener('click', function() {
     }, 5000); // Cambiar cada 5 segundos
 
     // Funcionalidad del carrusel
-    const carousel = document.querySelector('.carousel-images');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    document.querySelectorAll('.carousel').forEach(carousel => {
+    const carouselImages = carousel.querySelector('.carousel-images');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
     let currentIndex = 0;
-
-    const totalImages = document.querySelectorAll('.carousel-images img').length;
-    const imageWidth = document.querySelector('.carousel-images img').clientWidth;
+    const totalImages = carousel.querySelectorAll('.carousel-images img').length;
+    const imageWidth = carousel.querySelector('.carousel-images img').clientWidth;
 
     function updateCarousel() {
-        carousel.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`; // Corregir comillas invertidas
+        carouselImages.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`;
     }
 
     nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalImages; // Aumentar el índice
+        currentIndex = (currentIndex + 1) % totalImages;
         updateCarousel();
     });
 
     prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Disminuir el índice
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
         updateCarousel();
     });
 });
