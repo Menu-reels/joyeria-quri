@@ -590,17 +590,137 @@
         padding: 30px; /* Añadir más padding */
     }
 }
+
+
+
+/* Estilos para el menú en dispositivos de escritorio */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+
+ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+ul li img {
+    width: 40px; /* Ajusta el tamaño según necesidad */
+    height: 40px;
+}
+
+ul li h3 {
+    margin-top: 5px;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+}
+
+/* Estilos para el menú en dispositivos móviles */
+@media screen and (max-width: 768px) {
+    ul {
+        display: none;
+    }
+
+    .menu-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border: 1px solid black;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        z-index: 100;
+    }
+
+    .menu-icon i {
+        font-size: 24px;
+    }
+
+    .phone-icon {
+        position: absolute;
+        top: 10px;
+        left: 50px;
+        font-size: 24px;
+    }
+
+    /* Menú lateral oculto inicialmente */
+    .side-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 250px;
+        height: 100%;
+        background-color: white;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        padding-top: 50px;
+    }
+
+    .side-menu ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .side-menu ul li {
+        margin: 20px 0;
+    }
+
+    .side-menu.active {
+        left: 0;
+    }
+}
+
+/* Estilos generales para el ícono de carrito */
+.cart-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+}
+
+
+
     </style>
 </head>
 <body>
     <header>
+        <!-- Teléfono -->
         <p><a href="tel:+593 99 706 2776">+593 99 706 2776</a></p>
         <i class="fas fa-phone-alt phone-icon" id="phoneIcon"></i>
-       
+    
+        <!-- Menú principal (visible en desktop) -->
+        <ul>
+            <li><img src="anillo.png" alt=""><h3>Anillos</h3></li>
+            <li><img src="collar.png" alt=""><h3>Collares</h3></li>
+            <li><img src="relojes.png" alt=""><h3>Relojes</h3></li>
+        </ul>
+    
+        <!-- Ícono del carrito de compras -->
         <div class="cart-icon">
             <i class="fas fa-shopping-cart"></i>
         </div>
+    
+        <!-- Botón flotante del menú (visible en mobile) -->
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    
+        <!-- Menú lateral (visible en mobile al hacer clic en el botón) -->
+        <div class="side-menu">
+            <ul>
+                <li><img src="anillo.png" alt=""><h3>Anillos</h3></li>
+                <li><img src="collar.png" alt=""><h3>Collares</h3></li>
+                <li><img src="relojes.png" alt=""><h3>Relojes</h3></li>
+            </ul>
+        </div>
     </header>
+    
     <section class="slider">
         <div class="capa">
             <img src="logo-ia.png" alt="Logo Joyería Quri">
@@ -1091,6 +1211,13 @@ function showPopup() {
 
 // Evento para mostrar el pop-up al hacer clic en el botón
 agendarReunionButton.addEventListener('click', showPopup);
+
+
+// MENU
+
+document.querySelector('.menu-icon').addEventListener('click', function() {
+    document.querySelector('.side-menu').classList.toggle('active');
+});
 
 </script>
 <script module="type">
