@@ -621,6 +621,11 @@ ul li h3 {
     font-family: 'Raleway', sans-serif;
 }
 
+.menu-icon {
+
+    display: none;
+}
+
 /* Estilos para el menú en dispositivos móviles */
 @media screen and (max-width: 768px) {
  
@@ -634,6 +639,7 @@ ul li h3 {
         box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
         cursor: pointer;
         z-index: 100;
+       
         
     }
 
@@ -679,8 +685,7 @@ ul li h3 {
 /* Estilos generales para el ícono de carrito */
 .cart-icon {
     position: absolute;
-    top: 10px;
-    right: 10px;
+
     font-size: 24px;
 }
 
@@ -695,10 +700,7 @@ ul li h3 {
         <i class="fas fa-phone-alt phone-icon" id="phoneIcon"></i>
     
     
-        <!-- Ícono del carrito de compras -->
-        <div class="cart-icon">
-            <i class="fas fa-shopping-cart"></i>
-        </div>
+        
     
         <!-- Botón flotante del menú (visible en mobile) -->
         <div class="menu-icon">
@@ -712,6 +714,11 @@ ul li h3 {
                 <li><img src="collar.png" alt=""><h3>Collares</h3></li>
                 <li><img src="relojes.png" alt=""><h3>Relojes</h3></li>
             </ul>
+        </div>
+
+        <!-- Ícono del carrito de compras -->
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
         </div>
     </header>
     
