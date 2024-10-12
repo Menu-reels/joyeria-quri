@@ -865,16 +865,7 @@ phoneIcon.addEventListener('click', function() {
         h1.textContent = newText;
     }, 4000);
 
-    // Cambiar imagen en la sección Ejemplo cada 5 segundos
-    const ejemploImage = document.querySelector('.ejemplo-image img');
-    const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
-    let currentImageIndex = 0;
-
-    setInterval(() => {
-        currentImageIndex = (currentImageIndex + 1) % images.length; // Cambiar el índice
-        ejemploImage.src = images[currentImageIndex]; // Actualizar la imagen
-    }, 5000); // Cambiar cada 5 segundos
-
+    
     // Funcionalidad del carrusel
 const carousel = document.querySelector('.carousel-images');
 const prevBtn = document.querySelector('.prev');
