@@ -746,11 +746,11 @@ ul li h3 {
     </section>
 
     <!-- Nueva sección Colección -->
-    <section class="coleccion">
-        <h1>Colección Septiembre</h1>
-        <div class="carousel">
-            <button class="prev">&#10094;</button>
-          <div class="carousel-images" style="transform: translateX(0px);">
+<section class="coleccion">
+    <h1>Colección Septiembre</h1>
+    <div class="carousel">
+        <button class="prev">&#10094;</button>
+        <div class="carousel-images" style="transform: translateX(0px);">
             <div class="product" data-img="joyanew1.png" data-descripcion="Hola me está interesando este producto >> https://www.qurijoyas.com/joyanew1.png">
                 <img src="joyanew1.png" alt="Joya 1" class="product-image">
             </div>
@@ -760,36 +760,31 @@ ul li h3 {
             <div class="product" data-img="joyanew4.png" data-descripcion="Hola me está interesando este producto >> https://www.qurijoyas.com/joyanew4.png">
                 <img src="joyanew4.png" alt="Joya 3" class="product-image">
             </div>
-           
         </div>
+        <button class="next">&#10095;</button>
+    </div>
+</section>
 
-            <button class="next">&#10095;</button>
-        </div>
-    </section>
-
-
-
- <section class="coleccion">
-        <h1>Colección Octubre</h1>
-        <div class="carousel">
-            <button class="prev">&#10094;</button>
-          <div class="carousel-images" style="transform: translateX(0px);">
-           
+<section class="coleccion">
+    <h1>Colección Octubre</h1>
+    <div class="carousel">
+        <button class="prev">&#10094;</button>
+        <div class="carousel-images" style="transform: translateX(0px);">
             <div class="product" data-img="quri.jpeg" data-descripcion="Descripción del Producto 5">
                 <img src="quri1.png" alt="Joya 5" class="product-image">
             </div>
             <div class="product" data-img="joyanew2.jpeg" data-descripcion="Descripción del Producto 5">
                 <img src="joyasnew2.png" alt="Joya 5" class="product-image">
             </div>
-
-              <div class="product" data-img="joyanew3.jpeg" data-descripcion="Descripción del Producto 5">
+            <div class="product" data-img="joyanew3.jpeg" data-descripcion="Descripción del Producto 5">
                 <img src="joyasnew3.png" alt="Joya 5" class="product-image">
             </div>
         </div>
+        <button class="next">&#10095;</button>
+    </div>
+</section>
 
-            <button class="next">&#10095;</button>
-        </div>
-    </section>
+
 
 
 <!-- Nueva sección Ejemplo -->
@@ -986,30 +981,35 @@ phoneIcon.addEventListener('click', function() {
     }, 4000);
         });
     
-    // Funcionalidad del carrusel
-const carousel = document.querySelector('.carousel-images');
-const prevBtn = document.querySelector('.prev');
-const nextBtn = document.querySelector('.next');
-let currentIndex = 0;
-
-const totalImages = document.querySelectorAll('.carousel-images img').length;
-const imageWidth = document.querySelector('.carousel-images img').clientWidth;
-
-function updateCarousel() {
-    carousel.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`; // Corregido el uso de comillas invertidas y px
-}
-
-nextBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % totalImages; // Aumentar el índice
-    updateCarousel();
-});
-
-prevBtn.addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Disminuir el índice
-    updateCarousel();
-});
 
 
+
+    document.querySelectorAll('.carousel').forEach(carousel => {
+        const imagesContainer = carousel.querySelector('.carousel-images');
+        const prevBtn = carousel.querySelector('.prev');
+        const nextBtn = carousel.querySelector('.next');
+        let currentIndex = 0;
+        
+        const totalImages = imagesContainer.querySelectorAll('img').length;
+        const imageWidth = imagesContainer.querySelector('img').clientWidth;
+
+        function updateCarousel() {
+            imagesContainer.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`; // Corregido el uso de comillas invertidas y px
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % totalImages; // Aumentar el índice
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Disminuir el índice
+            updateCarousel();
+        });
+    });
+
+
+    
   // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
     document.addEventListener('DOMContentLoaded', function() {
         
