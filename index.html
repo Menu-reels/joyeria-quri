@@ -876,29 +876,27 @@ phoneIcon.addEventListener('click', function() {
     }, 5000); // Cambiar cada 5 segundos
 
     // Funcionalidad del carrusel
-    const carousel = document.querySelector('.carousel-images');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
-    let currentIndex = 0;
+const carousel = document.querySelector('.carousel-images');
+const prevBtn = document.querySelector('.prev');
+const nextBtn = document.querySelector('.next');
+let currentIndex = 0;
 
-    const totalImages = document.querySelectorAll('.carousel-images img').length;
-    const imageWidth = document.querySelector('.carousel-images img').clientWidth;
+const totalImages = document.querySelectorAll('.carousel-images img').length;
+const imageWidth = document.querySelector('.carousel-images img').clientWidth;
 
-    function updateCarousel() {
-        carousel.style.transform = translateX(${-currentIndex * (imageWidth + 20)}px); // Corregir comillas invertidas
-    }
+function updateCarousel() {
+    carousel.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`; // Corregido el uso de comillas invertidas y px
+}
 
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalImages; // Aumentar el índice
-        updateCarousel();
-    });
-
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Disminuir el índice
-        updateCarousel();
-    });
+nextBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % totalImages; // Aumentar el índice
+    updateCarousel();
 });
 
+prevBtn.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Disminuir el índice
+    updateCarousel();
+});
 
 
   // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
