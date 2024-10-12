@@ -998,29 +998,6 @@ phoneIcon.addEventListener('click', function() {
 
 
 
-    document.querySelectorAll('.carousel').forEach(carousel => {
-        const imagesContainer = carousel.querySelector('.carousel-images');
-        const prevBtn = carousel.querySelector('.prev');
-        const nextBtn = carousel.querySelector('.next');
-        let currentIndex = 0;
-        
-        const totalImages = imagesContainer.querySelectorAll('img').length;
-        const imageWidth = imagesContainer.querySelector('img').clientWidth;
-
-        function updateCarousel() {
-            imagesContainer.style.transform = `translateX(${-currentIndex * (imageWidth + 20)}px)`; // Corregido el uso de comillas invertidas y px
-        }
-
-        nextBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % totalImages; // Aumentar el índice
-            updateCarousel();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + totalImages) % totalImages; // Disminuir el índice
-            updateCarousel();
-        });
-    });
 
 
     
