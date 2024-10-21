@@ -705,7 +705,38 @@ footer {
     margin: 0;
 }
 
+.carrousel-video-bucle-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
 
+.carrousel-video-bucle {
+  display: flex;
+  width: 300%;
+  animation: carrousel-video-bucle-scroll 15s linear infinite;
+}
+
+.carrousel-video-bucle-item {
+  min-width: 100%;
+  flex: 1;
+}
+
+video {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+@keyframes carrousel-video-bucle-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
     </style>
 </head>
 <body>
@@ -837,6 +868,22 @@ footer {
         </div>
     </div>
 </section>
+
+
+<div class="carrousel-video-bucle-container">
+  <div class="carrousel-video-bucle">
+    <div class="carrousel-video-bucle-item">
+      <video src="video1.mp4" autoplay loop muted></video>
+    </div>
+    <div class="carrousel-video-bucle-item">
+      <video src="video2.mp4" autoplay loop muted></video>
+    </div>
+    <div class="carrousel-video-bucle-item">
+      <video src="video3.mp4" autoplay loop muted></video>
+    </div>
+    <!-- Agrega más videos si es necesario -->
+  </div>
+</div>
 
 
 
