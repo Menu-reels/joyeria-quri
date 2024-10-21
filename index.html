@@ -713,7 +713,14 @@ footer {
   width: 100%;
   overflow: hidden;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
 .carrousel-video-bucle {
@@ -722,33 +729,47 @@ footer {
 }
 
 .carrousel-video-bucle-item {
-  flex: 0 0 150px;
+  flex: 0 0 200px;
 }
 
 video {
-  width: 150px;
+  width: 200px;
   height: auto;
   object-fit: cover;
   display: block;
 }
 
-@media (max-width: 768px) {
+/* Estilos responsivos para diferentes pantallas */
+@media (min-width: 1024px) {
+  /* Para pantallas de PC (grandes) */
   .carrousel-video-bucle-item {
-    flex: 0 0 100px; /* Cambia el tamaño a 100px en pantallas más pequeñas */
+    flex: 0 0 300px;
   }
 
   video {
-    width: 100px; /* Video ajustado para pantallas pequeñas */
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Para pantallas medianas (tablets) */
+  .carrousel-video-bucle-item {
+    flex: 0 0 150px;
+  }
+
+  video {
+    width: 150px;
   }
 }
 
 @media (max-width: 480px) {
+  /* Para pantallas pequeñas (móviles) */
   .carrousel-video-bucle-item {
-    flex: 0 0 80px; /* Aún más pequeño en pantallas muy pequeñas */
+    flex: 0 0 100px;
   }
 
   video {
-    width: 80px; /* Video ajustado para pantallas muy pequeñas */
+    width: 100px;
   }
 }
     </style>
@@ -885,6 +906,7 @@ video {
 
 
 <div class="carrousel-video-bucle-container">
+  <h1>Últimas Novedades en Instagram</h1>
   <div class="carrousel-video-bucle">
     <div class="carrousel-video-bucle-item">
       <video src="video1.mp4" autoplay loop muted></video>
@@ -898,6 +920,8 @@ video {
     <!-- Agrega más videos si es necesario -->
   </div>
 </div>
+
+
 
 
 
