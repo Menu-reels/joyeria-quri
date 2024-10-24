@@ -815,6 +815,36 @@ video {
 
 
 
+
+
+
+
+
+        .coleccion img.ofertaslider {
+    width: 100%;
+    height: auto; /* Mantener la proporción de la imagen */
+    max-width: 100%; /* Asegurar que no exceda el ancho del contenedor */
+    object-fit: cover; /* Escalar la imagen, cubriendo el área */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  
+
+    .coleccion img.ofertaslider {
+        max-width: 100%;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+   
+    .coleccion img.ofertaslider {
+        max-width: 100%;
+    }
+}
+
     </style>
 </head>
 <body>
@@ -870,10 +900,10 @@ video {
     </div>
 </section>
 
-
-<section class="coleccion" style="position: relative; height: 100vh;">
-    <img src="ofertaslider.png" alt="Oferta Slider" style="width: 100%; height: 100%; object-fit: cover; max-width: 100%;">
+<section class="coleccion">
+    <img src="ofertaslider.png" >
 </section>
+
 
 
 
