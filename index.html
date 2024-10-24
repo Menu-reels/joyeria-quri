@@ -14,35 +14,36 @@
             padding: 0;
         }
 
-        body {
-            font-family: 'Dancing Script', cursive;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-            background-color: #fff;
-        }
+        /* Aplicar fondo negro y texto blanco a todo el sitio */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Dancing Script', cursive;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 
-        header {
-            background-color: #f8f9fa;
-            padding: 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            text-align: center;
-        }
+/* Estilos para el header con fondo oscuro y texto blanco */
+header {
+    background-color: #111; /* Fondo oscuro para el encabezado */
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    color: #fff; /* Texto blanco */
+}
 
-        header p {
-            margin: 0;
-            font-size: 1.2rem;
-            flex: 1;
-            text-align: left;
-        }
+header p, header a {
+    color: #fff; /* Links y párrafos en blanco */
+}
 
-        header a {
-           text-decoration: none;
-           color: black;
-        }
+header img {
+    filter: brightness(0) invert(1); /* Asegurar que los logos o imágenes sean visibles sobre fondo oscuro */
+}
+
 
       .slider {
     position: relative;
@@ -84,19 +85,26 @@
 
 button {
     margin-top: 10px;
+    background-color: #fff; /* Botón con fondo blanco */
+    color: #000; /* Texto en negro */
+}
+
+        button:hover {
+    background-color: #444; /* Botón cambia de color al pasar el mouse */
+    color: #fff;
 }
 
 
         h1 {
-            font-size: 3rem;
-            margin: 0;
-            padding: 0;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid black;
-            animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
-            filter: drop-shadow(0 2px 5px rgba(242, 226, 221, 0.7));
-        }
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+    animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
+    color: #fff;
+}
 
         @keyframes typing {
             from { width: 0 }
@@ -109,38 +117,40 @@ button {
         }
 
         /* Nueva sección colección */
-        .coleccion {
-            padding: 50px 0;
-            background-color: #f1f1f1;
-        }
+       .coleccion {
+    padding: 50px 0;
+    background-color: #000; /* Fondo negro para la sección */
+}
 
-        .coleccion h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+.coleccion h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
 
-        .carousel {
-            display: flex;
-            align-items: center;
-            position: relative;
-            max-width: 80%;
-            margin: 0 auto;
-                overflow-x: auto;
-        }
+.carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.carousel-images img {
+    width: 300px;
+    height: auto;
+    margin: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
 
         .carousel-images {
             display: flex;
             
         }
 
-        .carousel-images img {
-            width: 300px;
-            height: auto;
-            margin: 0 10px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-
+     
        
 
         /* Media queries para pantallas pequeñas */
@@ -857,154 +867,7 @@ video {
     </div>
 </section>
 
-<!-- Nueva sección Colección -->
-<section class="coleccion">
-    <h1>Nueva Colección Novedosa</h1>
-    <div class="carousel">
-        <div class="carousel-images" style="transform: translateX(0px);">
-            <div class="product" data-img="Mod 1.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%201.png">
-                <img src="Mod 1.png" alt="Joya 1" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 2.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%202.png">
-                <img src="Mod 2.png" alt="Joya 2" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 3.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%203.png">
-                <img src="Mod 3.png" alt="Joya 3" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 4.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%204.png">
-                <img src="Mod 4.png" alt="Joya 4" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 5.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%205.png">
-                <img src="Mod 5.png" alt="Joya 5" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 6.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%206.png">
-                <img src="Mod 6.png" alt="Joya 6" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 7.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%207.png">
-                <img src="Mod 7.png" alt="Joya 7" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 8.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%208.png">
-                <img src="Mod 8.png" alt="Joya 8" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 9.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%209.png">
-                <img src="Mod 9.png" alt="Joya 9" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 10.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2010.png">
-                <img src="Mod 10.png" alt="Joya 10" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 11.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2011.png">
-                <img src="Mod 11.png" alt="Joya 11" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 12.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2012.png">
-                <img src="Mod 12.png" alt="Joya 12" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 13.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2013.png">
-                <img src="Mod 13.png" alt="Joya 13" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 14.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2014.png">
-                <img src="Mod 14.png" alt="Joya 14" class="product-image">
-            </div>
-            <div class="product" data-img="Mod 15.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2015.png">
-    <img src="Mod 15.png" alt="Joya 15" class="product-image">
-</div>
-<div class="product" data-img="Mod 16.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2016.png">
-    <img src="Mod 16.png" alt="Joya 16" class="product-image">
-</div>
-<div class="product" data-img="Mod 17.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2017.png">
-    <img src="Mod 17.png" alt="Joya 17" class="product-image">
-</div>
-<div class="product" data-img="Mod 18.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2018.png">
-    <img src="Mod 18.png" alt="Joya 18" class="product-image">
-</div>
-<div class="product" data-img="Mod 19.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2019.png">
-    <img src="Mod 19.png" alt="Joya 19" class="product-image">
-</div>
-<div class="product" data-img="Mod 20.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2020.png">
-    <img src="Mod 20.png" alt="Joya 20" class="product-image">
-</div>
-<div class="product" data-img="Mod 21.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2021.png">
-    <img src="Mod 21.png" alt="Joya 21" class="product-image">
-</div>
-<div class="product" data-img="Mod 22.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2022.png">
-    <img src="Mod 22.png" alt="Joya 22" class="product-image">
-</div>
-<div class="product" data-img="Mod 23.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2023.png">
-    <img src="Mod 23.png" alt="Joya 23" class="product-image">
-</div>
-<div class="product" data-img="Mod 24.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2024.png">
-    <img src="Mod 24.png" alt="Joya 24" class="product-image">
-</div>
-<div class="product" data-img="Mod 25.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2025.png">
-    <img src="Mod 25.png" alt="Joya 25" class="product-image">
-</div>
-<div class="product" data-img="Mod 26.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2026.png">
-    <img src="Mod 26.png" alt="Joya 26" class="product-image">
-</div>
-<div class="product" data-img="Mod 27.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2027.png">
-    <img src="Mod 27.png" alt="Joya 27" class="product-image">
-</div>
-<div class="product" data-img="Mod 28.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2028.png">
-    <img src="Mod 28.png" alt="Joya 28" class="product-image">
-</div>
-<div class="product" data-img="Mod 29.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2029.png">
-    <img src="Mod 29.png" alt="Joya 29" class="product-image">
-</div>
-<div class="product" data-img="Mod 30.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2030.png">
-    <img src="Mod 30.png" alt="Joya 30" class="product-image">
-</div>
-<div class="product" data-img="Mod 31.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2031.png">
-    <img src="Mod 31.png" alt="Joya 31" class="product-image">
-</div>
-<div class="product" data-img="Mod 32.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2032.png">
-    <img src="Mod 32.png" alt="Joya 32" class="product-image">
-</div>
-<div class="product" data-img="Mod 33.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2033.png">
-    <img src="Mod 33.png" alt="Joya 33" class="product-image">
-</div>
-<div class="product" data-img="Mod 34.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2034.png">
-    <img src="Mod 34.png" alt="Joya 34" class="product-image">
-</div>
-<div class="product" data-img="Mod 35.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2035.png">
-    <img src="Mod 35.png" alt="Joya 35" class="product-image">
-</div>
-<div class="product" data-img="Mod 36.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2036.png">
-    <img src="Mod 36.png" alt="Joya 36" class="product-image">
-</div>
-<div class="product" data-img="Mod 37.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2037.png">
-    <img src="Mod 37.png" alt="Joya 37" class="product-image">
-</div>
-<div class="product" data-img="Mod 38.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2038.png">
-    <img src="Mod 38.png" alt="Joya 38" class="product-image">
-</div>
-<div class="product" data-img="Mod 39.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2039.png">
-    <img src="Mod 39.png" alt="Joya 39" class="product-image">
-</div>
-<div class="product" data-img="Mod 40.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2040.png">
-    <img src="Mod 40.png" alt="Joya 40" class="product-image">
-</div>
-<div class="product" data-img="Mod 41.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2041.png">
-    <img src="Mod 41.png" alt="Joya 41" class="product-image">
-</div>
-<div class="product" data-img="Mod 42.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2042.png">
-    <img src="Mod 42.png" alt="Joya 42" class="product-image">
-</div>
-<div class="product" data-img="Mod 43.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2043.png">
-    <img src="Mod 43.png" alt="Joya 43" class="product-image">
-</div>
-<div class="product" data-img="Mod 44.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2044.png">
-    <img src="Mod 44.png" alt="Joya 44" class="product-image">
-</div>
-<div class="product" data-img="Mod 45.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2045.png">
-    <img src="Mod 45.png" alt="Joya 45" class="product-image">
-</div>
-<div class="product" data-img="Mod 46.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/Mod%2046.png">
-    <img src="Mod 46.png" alt="Joya 46" class="product-image">
-</div>
 
-
-        </div>
-    </div>
-</section>
 
 
 
