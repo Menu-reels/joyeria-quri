@@ -849,6 +849,39 @@ video {
     }
 }
 
+
+form select {
+    width: 100%;               /* Ancho completo del contenedor */
+    padding: 10px;             /* Espaciado interno */
+    margin-top: 10px;          /* Separación con otros elementos */
+    border: 1px solid #ccc;    /* Borde del select */
+    border-radius: 5px;        /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo */
+    color: #333;               /* Color del texto */
+    font-size: 16px;           /* Tamaño de la fuente */
+    -webkit-appearance: none;  /* Quita la apariencia por defecto en navegadores Webkit */
+    -moz-appearance: none;     /* Quita la apariencia por defecto en Firefox */
+    appearance: none;          /* Quita la apariencia por defecto en navegadores modernos */
+    cursor: pointer;           /* Cambia el cursor al pasar sobre el select */
+}
+
+form select:focus {
+    outline: none;             /* Quita el borde de enfoque por defecto */
+    border-color: #007bff;     /* Color del borde cuando el select está en foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra azul */
+}
+
+form select option {
+    color: #333;               /* Color del texto de las opciones */
+    background-color: #fff;    /* Fondo de las opciones */
+}
+
+/* Estilo para el botón de selección (flecha del select) */
+form select::-ms-expand {
+    display: none; /* Oculta el ícono de dropdown en Internet Explorer */
+}
+
+
     </style>
 </head>
 <body>
@@ -897,6 +930,13 @@ video {
             <div>
                 <label for="phone">Teléfono:</label>
                 <input type="tel" id="phone" name="phone" value="+593" required>
+            </div>
+            <div>
+                <label for="catalog">Catálogo:</label>
+                <select id="catalog" name="catalog" required>
+                    <option value="alianzas">Catálogo de Alianzas de Matrimonio</option>
+                    <option value="anillos">Catálogo de Anillos de Compromiso</option>
+                </select>
             </div>
             <button type="submit">Enviar</button>
             <div id="phoneError" style="display: none; color: red;">El número de teléfono tiene que tener al menos 9 dígitos.</div>
@@ -1246,78 +1286,81 @@ phoneIcon.addEventListener('click', function() {
     }, 5000);
 
 
-    const form = document.getElementById('contactForm');
-        const telefonoInput = document.getElementById('phone');
-        const phoneError = document.getElementById('phoneError');
+   const form = document.getElementById('contactForm');
+    const telefonoInput = document.getElementById('phone');
+    const phoneError = document.getElementById('phoneError');
 
-        // Función para sanear y formatear el teléfono en tiempo real
-        telefonoInput.addEventListener("input", function () {
-            let telefono = telefonoInput.value.replace(/\s+/g, ''); // Eliminar espacios
-            telefono = telefono.replace(/[^0-9+]/g, ''); // Eliminar caracteres no permitidos
+    // Función para sanear y formatear el teléfono en tiempo real
+    telefonoInput.addEventListener("input", function () {
+        let telefono = telefonoInput.value.replace(/\s+/g, ''); // Eliminar espacios
+        telefono = telefono.replace(/[^0-9+]/g, ''); // Eliminar caracteres no permitidos
 
-            // Asegurarse de que siempre empiece con +593
-            if (!telefono.startsWith("+593")) {
-                telefono = "+593" + telefono.replace(/^(\+593)/, ''); // Reemplazar cualquier otro código inicial
-            }
+        // Asegurarse de que siempre empiece con +593
+        if (!telefono.startsWith("+593")) {
+            telefono = "+593" + telefono.replace(/^(\+593)/, ''); // Reemplazar cualquier otro código inicial
+        }
 
-            // Limitar la longitud máxima a 15 caracteres (incluyendo el +593)
-            if (telefono.length > 15) {
-                telefono = telefono.slice(0, 15);
-            }
+        // Limitar la longitud máxima a 15 caracteres (incluyendo el +593)
+        if (telefono.length > 15) {
+            telefono = telefono.slice(0, 15);
+        }
 
-            telefonoInput.value = telefono;
+        telefonoInput.value = telefono;
 
-            // Validar longitud del teléfono en tiempo real (al menos 9 dígitos después de +593)
-            if (telefono.length >= 13) {
-                phoneError.style.display = 'none';
-                form.querySelector('button[type="submit"]').disabled = false;
-            } else {
-                phoneError.style.display = 'block';
-                form.querySelector('button[type="submit"]').disabled = true;
-            }
+        // Validar longitud del teléfono en tiempo real (al menos 9 dígitos después de +593)
+        if (telefono.length >= 13) {
+            phoneError.style.display = 'none';
+            form.querySelector('button[type="submit"]').disabled = false;
+        } else {
+            phoneError.style.display = 'block';
+            form.querySelector('button[type="submit"]').disabled = true;
+        }
+    });
+
+    // Evento de envío del formulario
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const inputName = encodeURIComponent(form.querySelector('input[name="name"]').value);
+        const inputPhone = encodeURIComponent(telefonoInput.value.replace(/\s+/g, ''));
+        const catalogSelect = document.getElementById('catalog').value;
+
+        // Seleccionar el clientEmail dependiendo de la selección del catálogo
+        let clientEmail = "";
+        if (catalogSelect === "alianzas") {
+            clientEmail = encodeURIComponent("rickymaldonado2@gmail.com");
+        } else if (catalogSelect === "anillos") {
+            clientEmail = encodeURIComponent("rickymaldonado3@gmail.com");
+        }
+
+        // Validar que el teléfono tenga al menos 9 dígitos después de +593
+        if (inputPhone.length < 13) {
+            phoneError.style.display = 'block';
+            return;
+        } else {
+            phoneError.style.display = 'none';
+        }
+
+        const url = `https://hooks.zapier.com/hooks/catch/19308114/2dgvzu2?clientEmail=${clientEmail}&leadName=${inputName}&leadPhone=${inputPhone}`;
+
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => {
+            console.log(response);
+            alert("¡Gracias por tu interés! Te contactaremos pronto.");
+            form.reset(); // Limpia el formulario después de enviar
+            telefonoInput.value = "+593"; // Restaurar el valor por defecto del teléfono
+        })
+        .catch(error => {
+            console.error(error);
+            alert("Te acabamos de enviar el catálogo por Whatsapp.");
         });
-
-        // Evento de envío del formulario
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const inputName = encodeURIComponent(form.querySelector('input[name="name"]').value);
-            const inputPhone = encodeURIComponent(telefonoInput.value.replace(/\s+/g, ''));
-            const clientEmail = encodeURIComponent("rickymaldonado@gmail.com");
-
-            // Validar que el teléfono tenga al menos 9 dígitos después de +593
-            if (inputPhone.length < 13) {
-                phoneError.style.display = 'block';
-                return;
-            } else {
-                phoneError.style.display = 'none';
-            }
-
-            const url = `https://hooks.zapier.com/hooks/catch/19308114/2dgvzu2?clientEmail=${clientEmail}&leadName=${inputName}&leadPhone=${inputPhone}`;
-
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({})
-            })
-            .then(response => {
-                
-            })
-            .then(result => {
-                console.log(result);
-                alert("¡Gracias por tu interés! Te contactaremos pronto.");
-                form.reset(); // Limpia el formulario después de enviar
-                telefonoInput.value = "+593"; // Restaurar el valor por defecto del teléfono
-            })
-            .catch(error => {
-                console.error(error);
-                alert("Te acabamos de enviar el catálogo por Whatsapp.");
-            });
-        });
-
-
+    });
 document.querySelectorAll('.product').forEach(product => {
     product.addEventListener('click', () => {
         const imgSrc = product.getAttribute('data-img');
