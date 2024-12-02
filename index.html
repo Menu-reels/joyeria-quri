@@ -901,8 +901,8 @@ form select::-ms-expand {
         <!-- Menú lateral (visible en mobile al hacer clic en el botón) -->
        <div class="side-menu">
     <ul>
-        <li id="linkOferta"><img src="oferta.png" alt=""><h3>Oferta</h3></li>
-        <li id="linkSeptiembre"><img src="joyanew1.png" alt=""><h3>Colección Septiembre</h3></li>
+        <li id="linkOferta"><img src="oferta.png" alt=""><h3>Alianzas de Matrimonio</h3></li>
+        <li id="linkSeptiembre"><img src="joyanew1.png" alt=""><h3>Alianzas de Compromiso</h3></li>
         <li id="linkOctubre"><img src="quri1.png" alt=""><h3>Colección Octubre</h3></li>
     </ul>
 </div>
@@ -1369,19 +1369,17 @@ form select::-ms-expand {
 <script type="module">
 
 document.getElementById('linkOferta').addEventListener('click', function() {
-    document.querySelectorAll('.coleccion')[0].scrollIntoView({ behavior: 'smooth' });
-    document.querySelector('.side-menu').style.display = "none";
+    window.location.href = "coleccion1.html";
 });
 
 document.getElementById('linkSeptiembre').addEventListener('click', function() {
-    document.querySelectorAll('.coleccion')[1].scrollIntoView({ behavior: 'smooth' });
-    document.querySelector('.side-menu').style.display = "none";
+    window.location.href = "coleccion2.html";
 });
 
 document.getElementById('linkOctubre').addEventListener('click', function() {
-    document.querySelectorAll('.coleccion')[2].scrollIntoView({ behavior: 'smooth' });
-     document.querySelector('.side-menu').style.display = "none";
+    window.location.href = "coleccion3.html";
 });
+
 
 
 // TELEFONMO
