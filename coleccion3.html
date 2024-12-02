@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyería Quri | Tu Joya Perfecta</title>
+    <link rel="icon" href="https://www.qurijoyas.com/logo-ia.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Aplicar fondo negro y texto blanco a todo el sitio */
+body {
+    background-color: #000;
+    font-family: 'Dancing Script', cursive;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+/* Estilos para el header con fondo oscuro y texto blanco */
+header {
+    background-color: #111; /* Fondo oscuro para el encabezado */
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    text-align: center;
+    color: #fff; /* Texto blanco */
+}
+
+header p, header a {
+    color: #fff; /* Links y párrafos en blanco */
+}
+
+
+      .slider {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.video-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.capa {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.5); /* Capa oscura transparente */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.capa img {
+    width: 150px;
+}
+
+button {
+    margin-top: 10px;
+    background-color: #fff; /* Botón con fondo blanco */
+    color: #000; /* Texto en negro */
+}
+
+        button:hover {
+    background-color: #444; /* Botón cambia de color al pasar el mouse */
+    color: #fff;
+}
+
+
+        h1 {
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid white;
+    animation: typing 4s steps(30, end), blink-caret 0.5s step-end infinite;
+    color: #fff;
+}
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: black }
+        }
+
+        /* Nueva sección colección */
+       .coleccion {
+    padding: 50px 0;
+    background-color: #000; /* Fondo negro para la sección */
+}
+
+.coleccion h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 80%;
+    margin: 0 auto;
+    overflow-x: auto;
+}
+
+.carousel-images img {
+    width: 300px;
+    height: auto;
+    margin: 0 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+        .carousel-images {
+            display: flex;
+            
+        }
+
+     
+       
+
+        /* Media queries para pantallas pequeñas */
+        @media (max-width: 768px) {
+            header p {
+                display: none; /* Oculta el texto del teléfono en móviles */
+            }
+
+            .phone-icon {
+                font-size: 1.5rem;
+                display: block;
+                text-align: left;
+                margin-left: 15px;
+            }
+
+            header img {
+                margin: 10px 0;
+            }
+
+            h1 {
+                font-size: 25px!important; /* Ajuste del tamaño del h1 en móviles */
+            }
+
+            .carousel-images img {
+                width: 250px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .phone-icon {
+                display: none; /* Oculta el icono del teléfono en pantallas grandes */
+            }
+        }
+
+
+  /* Estilos para la sección de reseñas */
+    .reviews {
+    padding: 50px 0;
+    background-color: black;
+    text-align: center;
+}
+
+    .reviews h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+    }
+
+    .reviews-carousel {
+        overflow: hidden;
+        max-width: 80%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .reviews-items {
+        display: flex;
+        animation: slide 15s infinite linear;
+    }
+
+    .review {
+        flex: 0 0 300px;
+        margin: 0 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .review img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+    }
+
+    .review-info {
+        text-align: center;
+    }
+
+    .review h3 {
+        font-size: 1.5rem;
+        margin-bottom: 5px;
+    }
+
+    .review-date {
+        font-size: 0.9rem;
+        color: #888;
+        margin-bottom: 10px;
+    }
+
+    .stars {
+        color: #f1c40f;
+        margin-bottom: 10px;
+    }
+
+    .review-text {
+        font-size: 1rem;
+        color: #333;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-300px * 3)); /* Ajusta el número según la cantidad de reseñas */
+        }
+    }
+
+    /* Media queries para reseñas */
+    @media (max-width: 768px) {
+        .review {
+            flex: 0 0 250px;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-250px * 3)); /* Ajusta según el tamaño de reseñas en móviles */
+            }
+        }
+    }
+
+
+  .location {
+        padding: 50px 0;
+        background-color: #fff;
+        text-align: center;
+    }
+
+    .location h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .map-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .map-container iframe {
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        width: 80%;
+        max-width: 600px;
+        height: 450px;
+    }
+
+    /* Media query para ajustar el mapa en pantallas pequeñas */
+    @media (max-width: 768px) {
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+        }
+
+        .location h1 {
+            font-size: 2rem;
+        }
+
+        h1,h2 {
+            font-size: 25px;
+        }
+    }
+
+ .ejemplo {
+        padding: 50px 0;
+        background-color: black;
+        text-align: center;
+    }
+
+    .ejemplo h1 {
+        font-size: 2.5rem;
+        margin-bottom: 30px;
+        color: white;
+    }
+
+    .ejemplo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+    padding: 20px;
+color: white;
+    }
+
+    .ejemplo-image img {
+        width: 100%;
+        max-width: 500px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .ejemplo-text {
+        max-width: 600px;
+        font-size: 1.2rem;
+        color: #555;
+        line-height: 1.6;
+        text-align: left;
+        padding: 0 20px;
+    }
+
+        .ejemplo-text p {
+        color: white;
+    }
+
+    /* Media query para pantallas pequeñas */
+    @media (max-width: 768px) {
+        .ejemplo-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .ejemplo-text {
+            text-align: center;
+            padding: 0;
+        }
+
+        .ejemplo h1 {
+            font-size: 2rem;
+        }
+
+        .ejemplo-container {
+        flex-wrap: wrap;
+
+        }
+    }
+
+
+
+ /* Estilos para el formulario */
+        #contactForm {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        #contactForm div {
+            margin: 10px 0;
+            width: 100%;
+        }
+
+        #contactForm label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            display: block;
+            color: black;
+        }
+
+        #contactForm input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        #contactForm button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #contactForm button:hover {
+            background-color: #45a049;
+        }
+
+        #phoneError {
+            display: none;
+            color: red;
+            margin-top: 10px;
+        }
+
+
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.whatsapp-button img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-button img:hover {
+    transform: scale(1.1);
+}
+
+
+.popup-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+    backdrop-filter: blur(5px); /* Desenfoque de fondo */
+    z-index: 999; /* Capa superior */
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.popup img {
+    max-width: 100%;
+    height: auto;
+}
+
+.popup a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #25D366; /* Color de WhatsApp */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.close-popup {
+    position: absolute;
+    top: -34px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 75px;
+    color: #333; /* Color de la X */
+}
+
+
+  .schedule-button {
+        margin: 20px 0;
+    }
+    .btn-schedule {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    font-family: auto;
+    font-size: 25px;
+}
+    .btn-schedule:hover {
+        background-color: #45a049; /* Cambia el color al pasar el mouse */
+    }
+
+
+ /* Estilos para el pop-up */
+.popupagenda {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+/* Estilos para el contenido del pop-up */
+.popup-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Ajusta el tamaño según sea necesario */
+}
+
+/* Estilos para los encabezados */
+.popup-content h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333; /* Color del texto */
+}
+
+/* Estilos para los labels */
+.popup-content label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+/* Estilos para los inputs y selects */
+.popup-content input[type="text"],
+.popup-content input[type="tel"],
+.popup-content input[type="email"],
+.popup-content select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Estilos para el botón de envío */
+.popup-content button {
+    background-color: #28a745; /* Color del botón */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.popup-content button:hover {
+    background-color: #218838; /* Color del botón al pasar el cursor */
+}
+
+.close-popup2 {
+    cursor: pointer;
+    font-size: 75px;
+    color: #333;
+}
+
+
+/* Media query para dispositivos móviles */
+@media (max-width: 600px) {
+    .popup {
+        width: 95%; /* Hacer el pop-up más grande en móviles */
+        max-width: none; /* Quitar el ancho máximo para que ocupe más espacio */
+        padding: 30px; /* Añadir más padding */
+    }
+
+    .reviews h1 {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+     ul li h3 {
+        color: black!important;
+    }
+}
+
+
+
+/* Estilos para el menú en dispositivos de escritorio */
+ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0;
+}
+
+ul li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+ul li img {
+    width: 40px; /* Ajusta el tamaño según necesidad */
+    height: 40px;
+}
+
+ul li h3 {
+    margin-top: 5px;
+    font-size: 16px;
+    font-family: 'Raleway', sans-serif;
+        color: white;
+}
+
+.menu-icon {
+
+    display: none;
+}
+
+/* Estilos para el menú en dispositivos móviles */
+@media screen and (max-width: 768px) {
+ 
+    .menu-icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        border: 1px solid black;
+        padding: 10px;
+        background-color: white;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        cursor: pointer;
+        z-index: 100;
+       display: block;
+        
+    }
+
+    .menu-icon i {
+        font-size: 24px;
+        color: black;
+    }
+
+    .phone-icon {
+        position: absolute;
+        top: 10px;
+        left: 50px;
+        font-size: 24px;
+    }
+
+    /* Menú lateral oculto inicialmente */
+    .side-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        width: 250px;
+        height: 100%;
+        background-color: white;
+        transition: left 0.3s ease;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+        padding-top: 50px;
+    }
+
+    .side-menu ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    .side-menu ul li {
+        margin: 20px 0;
+    }
+
+    .side-menu.active {
+        left: 0;
+        z-index: 3;
+    }
+
+    h1 , h2 {
+        font-size: 25px;
+    }
+}
+
+/* Estilos generales para el ícono de carrito */
+.cart-icon {
+    font-size: 24px;
+}
+
+footer {
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 10px;
+}
+
+.social-links a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.social-links a i {
+    margin-right: 5px;
+}
+
+.footer-text h2 {
+    font-size: 16px;
+    margin: 0;
+}
+
+
+
+
+
+.carrousel-video-bucle-container {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+    padding: 25px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.carrousel-video-bucle {
+  display: flex;
+  gap: 10px; /* Espacio entre videos */
+}
+
+.carrousel-video-bucle-item {
+  flex: 0 0 200px;
+}
+
+video {
+  width: 200px;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+/* Estilos responsivos para diferentes pantallas */
+@media (min-width: 1024px) {
+  /* Para pantallas de PC (grandes) */
+  .carrousel-video-bucle-item {
+    flex: 0 0 300px;
+  }
+
+  video {
+    width: 300px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Para pantallas medianas (tablets) */
+  .carrousel-video-bucle-item {
+    flex: 0 0 150px;
+  }
+
+  video {
+    width: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Para pantallas pequeñas (móviles) */
+  .carrousel-video-bucle-item {
+    flex: 0 0 100px;
+  }
+
+  video {
+    width: 100px;
+  }
+
+    .slider {
+    height: 300px;
+    }
+}
+
+
+
+
+
+
+
+
+        .coleccion img.ofertaslider {
+    width: 100%;
+    height: auto; /* Mantener la proporción de la imagen */
+    max-width: 100%; /* Asegurar que no exceda el ancho del contenedor */
+    object-fit: cover; /* Escalar la imagen, cubriendo el área */
+    border-radius: 10px; /* Bordes redondeados opcionales */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  
+
+    .coleccion img.ofertaslider {
+        max-width: 100%;
+    }
+}
+
+/* Ajustes para pantallas muy pequeñas (móviles) */
+@media (max-width: 480px) {
+   
+    .coleccion img.ofertaslider {
+        max-width: 100%;
+    }
+}
+
+
+form select {
+    width: 100%;               /* Ancho completo del contenedor */
+    padding: 10px;             /* Espaciado interno */
+    margin-top: 10px;          /* Separación con otros elementos */
+    border: 1px solid #ccc;    /* Borde del select */
+    border-radius: 5px;        /* Bordes redondeados */
+    background-color: #f9f9f9; /* Fondo */
+    color: #333;               /* Color del texto */
+    font-size: 16px;           /* Tamaño de la fuente */
+    -webkit-appearance: none;  /* Quita la apariencia por defecto en navegadores Webkit */
+    -moz-appearance: none;     /* Quita la apariencia por defecto en Firefox */
+    appearance: none;          /* Quita la apariencia por defecto en navegadores modernos */
+    cursor: pointer;           /* Cambia el cursor al pasar sobre el select */
+}
+
+form select:focus {
+    outline: none;             /* Quita el borde de enfoque por defecto */
+    border-color: #007bff;     /* Color del borde cuando el select está en foco */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Sombra azul */
+}
+
+form select option {
+    color: #333;               /* Color del texto de las opciones */
+    background-color: #fff;    /* Fondo de las opciones */
+}
+
+/* Estilo para el botón de selección (flecha del select) */
+form select::-ms-expand {
+    display: none; /* Oculta el ícono de dropdown en Internet Explorer */
+}
+
+.logo-principal {
+display: flex;
+justify-content: center;
+align-items: center;
+background: black;
+}
+
+.logo-principal img {
+width: 150px;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="logo-principal">
+    <a href="https://www.qurijoyas.com/">
+        <img src="logo-ia.png" id="logo" alt="Logo">
+    </a>
+</div>
+
+    <header>
+        <!-- Teléfono -->
+        <p><a href="tel:+593 99 706 2776">+593 99 706 2776</a></p>
+        <i class="fas fa-phone-alt phone-icon" id="phoneIcon"></i>
+    
+    
+        
+    
+        <!-- Botón flotante del menú (visible en mobile) -->
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    
+        <!-- Menú lateral (visible en mobile al hacer clic en el botón) -->
+       <div class="side-menu">
+    <ul>
+        <li id="linkOferta"><img src="oferta.png" alt=""><h3>Alianzas de Matrimonio</h3></li>
+        <li id="linkSeptiembre"><img src="joyanew1.png" alt=""><h3>Alianzas de Compromiso</h3></li>
+        <li id="linkOctubre"><img src="quri1.png" alt=""><h3>Colección Octubre</h3></li>
+    </ul>
+</div>
+
+
+        <!-- Ícono del carrito de compras -->
+        <div class="cart-icon">
+            <i class="fas fa-shopping-cart"></i>
+        </div>
+    </header>
+    
+    <section class="slider">
+    <div class="video-bg">
+        <img src="https://i.postimg.cc/HsVHQW7g/Dise-o-sin-t-tulo-1.png"></img>
+    </div>
+    <div class="capa">
+        <h2>Alianzas de Matrimonio</h2>
+
+       
+    </div>
+</section>
+
+
+
+    <!-- Nueva sección Colección -->
+<section class="coleccion">
+    <h1>Alianzas de Matrimonio</h1>
+                    
+    <div class="carousel">
+        <div class="carousel-images" style="transform: translateX(0px);">
+            <div class="product" data-img="joyanew1.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/joyanew1.png">
+                <img src="joyanew1.png" alt="Joya 1" class="product-image">
+            </div>
+            <div class="product" data-img="joyanew2.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/joyanew2.png">
+                <img src="joyanew2.png" alt="Joya 2" class="product-image">
+            </div>
+            <div class="product" data-img="joyanew4.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/joyanew4.png">
+                <img src="joyanew4.png" alt="Joya 3" class="product-image">
+            </div>
+              <div class="product" data-img="joyanew1.png" data-descripcion="Hola me interesa este producto >> https://www.qurijoyas.com/joyanew1.png">
+                <img src="joyanew1.png" alt="Joya 1" class="product-image">
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+    <section class="reviews">
+    <h1>Lo que dicen nuestros clientes</h1>
+    <div class="reviews-carousel">
+        <div class="reviews-items">
+            <div class="review">
+                <img src="cliente1.png" alt="Cliente 1">
+                <div class="review-info">
+                    <h3>Juan Pérez</h3>
+                    <p class="review-date">12 de septiembre de 2024</p>
+                    <div class="stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9733;
+                    </div>
+                    <p class="review-text">¡Increíble atención y productos de gran calidad! Estoy muy contento con mi compra.</p>
+                </div>
+            </div>
+            <div class="review">
+                <img src="cliente2.png" alt="Cliente 2">
+                <div class="review-info">
+                    <h3>María García</h3>
+                    <p class="review-date">5 de agosto de 2024</p>
+                    <div class="stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9733;
+                    </div>
+                    <p class="review-text">La joyería es preciosa y llegó justo a tiempo. Muy recomendados.</p>
+                </div>
+            </div>
+            <div class="review">
+    <img src="cliente3.png" alt="Cliente 4">
+    <div class="review-info">
+        <h3>Sofía López</h3>
+        <p class="review-date">18 de junio de 2024</p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <p class="review-text">¡Los diseños son hermosos! El equipo fue muy atento y recibí mi pedido a tiempo. ¡Sin duda volveré a comprar!</p>
+    </div>
+</div>
+<div class="review">
+    <img src="cliente4.png" alt="Cliente 5">
+    <div class="review-info">
+        <h3>Diego Vargas</h3>
+        <p class="review-date">7 de mayo de 2024</p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9733;
+        </div>
+        <p class="review-text">Excelente experiencia de compra. La joya es de una calidad excepcional y la atención fue muy profesional.</p>
+    </div>
+</div>
+<div class="review">
+    <img src="cliente5.png" alt="Cliente 6">
+    <div class="review-info">
+        <h3>Elena Martínez</h3>
+        <p class="review-date">30 de abril de 2024</p>
+        <div class="stars">
+            &#9733;&#9733;&#9733;&#9733;&#9734;
+        </div>
+        <p class="review-text">El anillo es increíblemente detallado y hermoso. ¡Lo recomiendo al 100%! Solo tardó un poco en llegar.</p>
+    </div>
+</div>
+
+            <div class="review">
+                <img src="cliente6.png" alt="Cliente 3">
+                <div class="review-info">
+                    <h3>Carlos Fernández</h3>
+                    <p class="review-date">25 de julio de 2024</p>
+                    <div class="stars">
+                        &#9733;&#9733;&#9733;&#9733;&#9734;
+                    </div>
+                    <p class="review-text">El anillo que compré es perfecto. ¡Gracias por el excelente servicio!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<a href="https://api.whatsapp.com/send?phone=+593997062776&text=Quiero%20hacer%20un%20pedido" target="_blank" class="whatsapp-button">
+    <img src="logowt.png" alt="WhatsApp" />
+</a>
+
+
+<!-- Pop-up para Agendar -->
+<div id="popupagenda" class="popupagenda" style="display: none;">
+    <div class="popup-content">
+        <span class="close-popup2">×</span>
+        <h2>Solicitar Encuentro</h2>
+        <form id="agendaForm">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="phone">Teléfono:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="budget">Presupuesto Estimado de Joya:</label>
+            <select id="budget" name="budget" required>
+                <option value="0-500">$0 - $500</option>
+                <option value="500-1000">$500 - $1000</option>
+                <option value="1000-2000">$1000 - $2000</option>
+            </select>
+
+            <label for="preference">Preferencia:</label>
+            <select id="preference" name="preference" required>
+                <option value="domicilio">Desplazo a Domicilio</option>
+                <option value="oficinas">Oficinas</option>
+            </select>
+
+            <label for="date">Fecha de Reunión:</label>
+            <input type="date" id="date" name="date" required>
+
+            <label for="time">Hora de Reunión:</label>
+            <input type="time" id="time" name="time" required>
+
+            <label>
+                <input type="checkbox" id="commitment" name="commitment" required>
+                Acepto y me comprometo a ir a la reunión
+            </label>
+
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+</div>
+
+
+<!-- Nueva sección Ubicación -->
+<section class="location">
+    <h1>Encuéntranos en Av. Amazonas N2245</h1>
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6382.300696305689!2d-78.49004403435103!3d-0.18341868934865712!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a766b58c27b%3A0x1ff8a1d0e2d1c9!2sCentro%20Comercial%20I%C3%B1aquito%2C%20Quito%20017045%2C%20Ecuador!5e0!3m2!1ses!2sus!4v1693248594296!5m2!1ses!2sus" 
+            width="600" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+    <p>Nuestra Oficina: Av. Amazonas N2245, entre Ramires Dávalos y Carrión, al centro norte de Quito, Ecuador.</p>
+    <div class="button-container">
+        <a href="https://www.google.com/maps/place/Av.+R%C3%ADo+Amazonas,+Quito,+Ecuador/@-0.1774322,-78.4885018,17z/data=!3m1!4b1!4m6!3m5!1s0x91d59a14be543f1d:0x2d3818550ca8f27!8m2!3d-0.1774376!4d-78.4859215!16s%2Fg%2F1hc4fpvm9?entry=ttu&g_ep=EgoyMDI0MTAwMi4xIKXMDSoASAFQAw%3D%3D" class="btn-location">Ver Ubicación</a>
+       
+    </div>
+</section>
+
+
+ <a href="#" class="btn-schedule" id="agendarReunion">Agendar Encuentro</a>
+
+<footer>
+    <div class="social-links">
+        <a href="https://www.instagram.com/quridesignec/" target="_blank">
+            <i class="fab fa-instagram"></i> Instagram
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61565789586665" target="_blank">
+            <i class="fab fa-facebook"></i> Facebook
+        </a>
+    </div>
+    <div class="footer-text">
+        <h2>Todos los derechos reservados Joyería Quri 2024</h2>
+    </div>
+</footer>
+
+
+
+<script type="module">
+
+document.getElementById('linkOferta').addEventListener('click', function() {
+    window.location.href = "coleccion1.html";
+});
+
+document.getElementById('linkSeptiembre').addEventListener('click', function() {
+    window.location.href = "coleccion2.html";
+});
+
+document.getElementById('linkOctubre').addEventListener('click', function() {
+    window.location.href = "coleccion3.html";
+});
+
+
+// TELEFONMO
+
+const phoneIcon = document.getElementById('phoneIcon');
+// Añadir un evento click al ícono del teléfono
+phoneIcon.addEventListener('click', function() {
+    window.location.href = "tel:+593 99 706 2776";
+});
+
+
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+    // Cambiar el texto del h1 después de 4 segundos
+    var h1 = document.querySelector('h1');
+    var newText = 'Alianzas de Matrimonio';
+
+    setTimeout(function() {
+        h1.textContent = newText;
+    }, 4000);
+        });
+    
+
+
+
+
+
+    
+  // Hacer que el carrusel de reseñas vuelva a empezar cuando termine la animación
+    document.addEventListener('DOMContentLoaded', function() {
+        
+        const reviewContainer = document.querySelector('.reviews-items');
+        let clone = reviewContainer.innerHTML; // Clonar las reseñas
+
+        setInterval(() => {
+            reviewContainer.innerHTML += clone; // Añadir el clon de las reseñas
+        }, 15000); // Cada 15 segundos se duplicarán las reseñas para dar la sensación de carrusel continuo
+    });
+
+
+ // Cambiar ejemplo.jpg a ejemplo2.jpg cada 5 segundos
+    const ejemploImage = document.querySelector('.ejemplo-image img');
+    const images = ['ejemplo.jpg', 'ejemplo2.jpg'];
+    let currentImageIndex = 0;
+
+    setInterval(() => {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        ejemploImage.src = images[currentImageIndex];
+    }, 5000);
+
+
+   const form = document.getElementById('contactForm');
+    const telefonoInput = document.getElementById('phone');
+    const phoneError = document.getElementById('phoneError');
+
+    // Función para sanear y formatear el teléfono en tiempo real
+    telefonoInput.addEventListener("input", function () {
+        let telefono = telefonoInput.value.replace(/\s+/g, ''); // Eliminar espacios
+        telefono = telefono.replace(/[^0-9+]/g, ''); // Eliminar caracteres no permitidos
+
+        // Asegurarse de que siempre empiece con +593
+        if (!telefono.startsWith("+593")) {
+            telefono = "+593" + telefono.replace(/^(\+593)/, ''); // Reemplazar cualquier otro código inicial
+        }
+
+        // Limitar la longitud máxima a 15 caracteres (incluyendo el +593)
+        if (telefono.length > 15) {
+            telefono = telefono.slice(0, 15);
+        }
+
+        telefonoInput.value = telefono;
+
+        // Validar longitud del teléfono en tiempo real (al menos 9 dígitos después de +593)
+        if (telefono.length >= 13) {
+            phoneError.style.display = 'none';
+            form.querySelector('button[type="submit"]').disabled = false;
+        } else {
+            phoneError.style.display = 'block';
+            form.querySelector('button[type="submit"]').disabled = true;
+        }
+    });
+
+   
+document.querySelectorAll('.product').forEach(product => {
+    product.addEventListener('click', () => {
+        const imgSrc = product.getAttribute('data-img');
+        const descripcion = product.getAttribute('data-descripcion');
+
+        // Crear la capa de desenfoque
+        const overlay = document.createElement('div');
+        overlay.classList.add('popup-overlay');
+        document.body.appendChild(overlay);
+
+        // Crear el contenido del pop-up
+        const popupContent = `
+            <span class="close-popup">&times;</span>
+            <img src="${imgSrc}" alt="Imagen del producto">
+            <a href="https://wa.me/593997062776?text=${encodeURIComponent(descripcion)}" target="_blank">Enviar a WhatsApp</a>
+        `;
+
+        // Crear el pop-up
+        const popup = document.createElement('div');
+        popup.classList.add('popup');
+        popup.innerHTML = popupContent;
+        document.body.appendChild(popup);
+
+        // Mostrar la capa y el pop-up
+        overlay.style.display = 'block';
+        popup.style.display = 'block';
+
+        // Cerrar el pop-up al hacer clic en la X o en la capa de desenfoque
+        overlay.addEventListener('click', () => {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+            document.body.removeChild(overlay);
+            document.body.removeChild(popup);
+        });
+
+        document.querySelector('.close-popup').addEventListener('click', () => {
+            overlay.style.display = 'none';
+            popup.style.display = 'none';
+            document.body.removeChild(overlay);
+            document.body.removeChild(popup);
+        });
+    });
+});
+
+
+document.getElementById('agendaForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío predeterminado del formulario
+
+    // Recoger los datos del formulario y codificarlos
+    const formData = new URLSearchParams();
+    formData.append('name', encodeURIComponent(document.getElementById('name').value));
+    formData.append('phone', encodeURIComponent(document.getElementById('phone').value));
+    formData.append('email', encodeURIComponent(document.getElementById('email').value));
+    formData.append('budget', encodeURIComponent(document.getElementById('budget').value));
+    formData.append('preference', encodeURIComponent(document.getElementById('preference').value));
+    formData.append('date', encodeURIComponent(document.getElementById('date').value));
+    formData.append('time', encodeURIComponent(document.getElementById('time').value));
+    formData.append('commitment', encodeURIComponent(document.getElementById('commitment').checked)); // Valor del checkbox
+
+    // Enviar los datos al webhook de Zapier
+    fetch('https://hooks.zapier.com/hooks/catch/19308114/2malrah/', {
+        method: 'POST',
+        mode: 'no-cors', // Usar no-cors
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded', // Cambiar el tipo de contenido
+        },
+        body: formData.toString(), // Convertir los datos a string
+    })
+    .then(response => {
+        alert('Formulario enviado con éxito.');
+        closePopup(); // Cerrar el pop-up después de enviar el formulario
+    })
+    .catch(error => {
+        alert('Error de conexión: ' + error.message);
+    });
+});
+
+// Función para cerrar el pop-up
+function closePopup() {
+    document.querySelector('.popupagenda').style.display = 'none';
+}
+
+// Evento para cerrar el pop-up al hacer clic en el botón de cierre
+document.querySelector('.close-popup2').addEventListener('click', closePopup);
+
+// Evento para cerrar el pop-up al hacer clic fuera del contenido
+window.addEventListener('click', function(event) {
+    const popup = document.getElementById('popupagenda');
+    if (event.target === popup) {
+        closePopup();
+    }
+});
+
+
+
+
+// Obtener el botón y el pop-up
+const agendarReunionButton = document.getElementById('agendarReunion');
+const popupAgenda = document.getElementById('popupagenda');
+
+// Función para mostrar el pop-up
+function showPopup() {
+    popupAgenda.style.display = 'flex';
+}
+
+// Evento para mostrar el pop-up al hacer clic en el botón
+agendarReunionButton.addEventListener('click', showPopup);
+
+
+// MENU
+
+document.querySelector('.menu-icon').addEventListener('click', function() {
+    document.querySelector('.side-menu').classList.toggle('active');
+});
+
+</script>
+<script module="type">
+// Código de Facebook Pixel, se asegura de que esté cerrado correctamente
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '2783306515180850');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=2783306515180850&ev=PageView&noscript=1"
+/></noscript>
